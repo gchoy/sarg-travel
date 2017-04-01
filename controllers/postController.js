@@ -41,12 +41,22 @@ function destroy(req, res) {
   });
 }
 
+//PUT /api/posts/:postId
+function update(req, res) {
+   console.log('updating data', req.body);
+   var id = req.params.postId;
+   db.Post.findOneAndUpdate({_id:id}, req.body, function(err, foundPost) {
+
+       if(err) { console.log('saving altered cat failed'); }
+       res.json(foundPost);
+     });
+}
 
 
 module.exports = {
   index:index,
   show:show,
   create:create,
-  destroy: destroy
-  // update: update
+  destroy: destroy,
+  update: update
 };
