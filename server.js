@@ -12,6 +12,10 @@ var controllers = require('./controllers');
 app.get('/api', controllers.api.index);
 app.get('/api/posts', controllers.posts.index);
 
+
+
+
+
 app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is running on http://localhost:3000/');
 });

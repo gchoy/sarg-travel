@@ -9,12 +9,12 @@ var gchoy = new User({
     name: "gchoy"
 });
 console.log(gchoy);
-console.log(shaya);
+
 
 var shaya = new User({
     name: "shaya"
 })
-
+console.log(shaya);
 //gchoy.save();
 //shaya.save();
 
