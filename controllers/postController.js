@@ -1,13 +1,13 @@
 var db = require('../models');
 
-//GET /api/cats
+//GET /api/posts
 function index(req, res) {
   db.Post.find({}, function(err, allPosts) {
     res.json(allPosts);
   });
 }
 
-//GET /api/cats/catId
+//GET /api/posts/postId
 function show(req, res) {
   db.Post.findById(req.params.postId, function(err, foundPost) {
     if(err) { console.log('postController.show error', err); }
@@ -16,7 +16,7 @@ function show(req, res) {
   });
 }
 
-//POST /api/cats/
+//POST /api/posts/
 function create(req,res) {
   var post = new db.Post ({
    title: req.body.title,
@@ -33,19 +33,20 @@ function create(req,res) {
   });
 }
 
+//DELETE  /api/posts/:postId
+function destroy(req, res) {
+  db.Post.findOneAndRemove({ _id: req.params.postId }, function(err, foundPost){
+
+    res.json(foundPost);
+  });
+}
 
 
 
 module.exports = {
-<<<<<<< HEAD
   index:index,
   show:show,
-  create:create
-  // destroy: destroy,
+  create:create,
+  destroy: destroy
   // update: update
 };
-=======
-  index: index
-}
-
->>>>>>> 315658ea01f7715177347f85959fbc042aeeaf7a
