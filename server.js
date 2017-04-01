@@ -24,7 +24,7 @@ app.get('/api', controllers.api.index);
 app.get('/api/posts', controllers.posts.index);
 app.get('/api/posts/:postId', controllers.posts.show);
 app.post('/api/posts', controllers.posts.create);
-
+app.delete('/api/posts/:postId',controllers.posts.destroy);
 
 
 app.listen(process.env.PORT || 3000, function () {
