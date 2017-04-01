@@ -35,17 +35,10 @@ function create(req,res) {
 
 
 
-
 module.exports = {
-<<<<<<< HEAD
   index:index,
   show:show,
   create:create
   // destroy: destroy,
   // update: update
 };
-=======
-  index: index
-}
-
->>>>>>> 315658ea01f7715177347f85959fbc042aeeaf7a
