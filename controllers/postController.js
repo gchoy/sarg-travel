@@ -7,11 +7,6 @@ function index(req, res) {
   });
 }
 
-<<<<<<< HEAD
-module.exports = {
-  index: index
-}
-=======
 //GET /api/posts/postId
 function show(req, res) {
   db.Post.findById(req.params.postId, function(err, foundPost) {
@@ -57,7 +52,6 @@ function update(req, res) {
      });
 }
 
-
 module.exports = {
   index:index,
   show:show,
@@ -65,4 +59,3 @@ module.exports = {
   destroy: destroy,
   update: update
 };
->>>>>>> 0dc089efebbaf164950adcdf4005de32e9827360
