@@ -7,10 +7,8 @@ function index(req, res) {
 }
 
 
+
 module.exports = {
-  index:index
-  // show:show,
-  // create:create,
-  // destroy: destroy,
-  // update: update
-};
+  index: index
+}
+
