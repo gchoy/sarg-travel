@@ -9,12 +9,12 @@ var gchoy = new User({
     name: "gchoy"
 });
 console.log(gchoy);
-console.log(shaya);
+
 
 var shaya = new User({
     name: "shaya"
 })
-
+console.log(shaya);
 //gchoy.save();
 //shaya.save();
 
@@ -47,7 +47,7 @@ postList.push({
 //     db.User.create(userList, function(err, users){
 //       if (err) { return console.log('ERROR', err); }
 //       console.log("all users:", users);
-//       console.log("created", users.length, "users");
+//       console.log("created", userList.length, "users");
 //       process.exit();
 //     });
 //
@@ -59,7 +59,7 @@ postList.push({
       db.Post.create(postList, function(err, posts){
         if (err) { return console.log('ERROR', err); }
         console.log("all posts:", posts);
-        console.log("created", userList.length, "posts");
+        console.log("created", postList.length, "posts");
         process.exit();
       });
 

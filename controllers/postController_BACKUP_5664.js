@@ -1,18 +1,13 @@
 var db = require('../models');
 
-//GET /api/posts
+//GET /api/cats
 function index(req, res) {
   db.Post.find({}, function(err, allPosts) {
     res.json(allPosts);
   });
 }
 
-<<<<<<< HEAD
-module.exports = {
-  index: index
-}
-=======
-//GET /api/posts/postId
+//GET /api/cats/catId
 function show(req, res) {
   db.Post.findById(req.params.postId, function(err, foundPost) {
     if(err) { console.log('postController.show error', err); }
@@ -21,7 +16,7 @@ function show(req, res) {
   });
 }
 
-//POST /api/posts/
+//POST /api/cats/
 function create(req,res) {
   var post = new db.Post ({
    title: req.body.title,
@@ -38,31 +33,19 @@ function create(req,res) {
   });
 }
 
-//DELETE  /api/posts/:postId
-function destroy(req, res) {
-  db.Post.findOneAndRemove({ _id: req.params.postId }, function(err, foundPost){
 
-    res.json(foundPost);
-  });
-}
-
-//PUT /api/posts/:postId
-function update(req, res) {
-   console.log('updating data', req.body);
-   var id = req.params.postId;
-   db.Post.findOneAndUpdate({_id:id}, req.body, function(err, foundPost) {
-
-       if(err) { console.log('saving altered cat failed'); }
-       res.json(foundPost);
-     });
-}
 
 
 module.exports = {
+<<<<<<< HEAD
   index:index,
   show:show,
-  create:create,
-  destroy: destroy,
-  update: update
+  create:create
+  // destroy: destroy,
+  // update: update
 };
->>>>>>> 0dc089efebbaf164950adcdf4005de32e9827360
+=======
+  index: index
+}
+
+>>>>>>> 315658ea01f7715177347f85959fbc042aeeaf7a
