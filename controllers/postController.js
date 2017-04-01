@@ -5,3 +5,12 @@ function index(req, res) {
     res.json(allPosts);
   });
 }
+
+
+module.exports = {
+  index:index
+  // show:show,
+  // create:create,
+  // destroy: destroy,
+  // update: update
+};
