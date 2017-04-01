@@ -5,3 +5,7 @@ function index(req, res) {
     res.json(allPosts);
   });
 }
+
+module.exports = {
+  index: index,
+}
