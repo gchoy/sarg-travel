@@ -1,10 +1,11 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    bcrypt = require('bcryptjs')
 
 var UserSchema = new Schema({
   name: String,
   CurrentCity: String,
-  DateJoined: String,
+  DateJoined: {type: Date, default: Date.now()},
   image: String
 });
 
