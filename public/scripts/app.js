@@ -1,5 +1,5 @@
 angular
-  .module('AuthSampleApp', [
+  .module('sarg-travel', [
     'ngRoute',
     'satellizer'
   ])
