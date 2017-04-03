@@ -1,5 +1,5 @@
 angular
-  .module('Sarg-travel', ['ngRoute'])
+  .module('sarg-travel', ['appRoutes', 'userControllers'])
   .config(function($routeProvider, $locationProvider){
     $routeProvider
 
