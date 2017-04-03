@@ -1,7 +1,7 @@
 var User = require("./models/user");
 var Post = require("./models/post");
 var db = require("./models");
-var City = require("./models/city");
+// var City = require("./models/city");
 
 var userList =[];
 var postList =[];
