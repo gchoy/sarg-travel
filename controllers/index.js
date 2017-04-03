@@ -3,6 +3,5 @@
 
 module.exports = {
   api : require('./apiController'),
-  posts : require('./postController'),
-  cities : require('./cityController')
+  posts : require('./postController')
 }
