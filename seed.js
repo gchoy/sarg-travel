@@ -1,9 +1,11 @@
 var User = require("./models/user");
 var Post = require("./models/post");
 var db = require("./models");
+var City = require("./models/city");
 
 var userList =[];
 var postList =[];
+var cityList =[];
 
 var gchoy = new User({
     name: "gchoy"
@@ -42,6 +44,18 @@ postList.push({
   postBy: shaya._id
   });
 
+//City List
+cityList.push({
+   cityName: 'San Francisco',
+   cityCountry: 'USA'
+             });
+
+cityList.push({
+  cityName: 'London',
+  cityCountry: 'United Kingdom'
+             });
+
+
 // db.User.remove({}, function(err, user){
 //
 //     db.User.create(userList, function(err, users){
@@ -53,7 +67,6 @@ postList.push({
 //
 //   });
 
-
   db.Post.remove({}, function(err, posts){
 
       db.Post.create(postList, function(err, posts){
@@ -64,3 +77,14 @@ postList.push({
       });
 
     });
+
+  db.City.remove({}, function(err, cities){
+
+      db.City.create(cityList, function(err, cities){
+        if (err) { return console.log('ERROR', err); }
+        console.log("all cities:", cities);
+        console.log("created", cityList.length, "cities");
+        process.exit();
+      });
+
+      });
