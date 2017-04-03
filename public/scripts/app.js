@@ -1,3 +1,4 @@
+console.log('things are happnening');
 angular
   .module('sarg-travel', [
     'ngRoute',

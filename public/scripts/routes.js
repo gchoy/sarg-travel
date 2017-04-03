@@ -12,7 +12,8 @@ $routeProvider
   controllerAs: 'sc',
   resolve: {
   skipIfLoggedIn: skipIfLoggedIn
-  });
+    }
+  })
   .when('/login', {
   templateUrl: 'templates/auth/login.html',
   controller: 'LoginController',
@@ -47,7 +48,7 @@ $locationProvider.html5Mode({
   enabled: true,
   requireBase: false
 });
-})
+
 
 function skipIfLoggedIn($location, $auth) {
   if ($auth.isAuthenticated()) {
