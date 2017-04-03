@@ -18,15 +18,10 @@ function show(req, res) {
 
 //POST /api/posts/
 function create(req,res) {
-  var post = new db.Post ({
-   title: req.body.title,
-   post: req.body.owner,
-   postBy: req.body.postBy,
+ var userInput = req.body;
+  console.log('body',userInput);
 
- })//req.body
-  console.log('body',req.body);
-
-  db.Post.create(req.body, function(err, post){
+  db.Post.create(userInput, function(err, post){
     if (err) {console.log('error', err);}
     console.log(post);
     res.json(post);
