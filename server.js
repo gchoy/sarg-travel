@@ -1,7 +1,12 @@
-var express = require('express');
+var express = require('express'),
+    app = express(),
+    bodyParser = require('body-parser'),
+    logger = require('morgan'),
+    auth = require('./middleware/auth'),
+    controllers = require('./controllers');
 
-var app = express();
-var bodyParser = require('body-parser');
+// require and load dotenv
+require('dotenv').load();
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -16,7 +21,19 @@ app.get('/templates/:name', function templates(req, res) {
   res.sendFile(__dirname + '/views/templates/' + name + '.html');
 });
 
-var controllers = require('./controllers');
+app.get('/profile', function profilePage (req, res) {
+  res.sendFile(__dirname + '/public/templates/user/profile.html');
+});
+
+app.get('/register', function registerPage (req, res) {
+  res.sendFile(__dirname + '/public/templates/user/register.html');
+});
+
+var usersCtrl = controllers.users;
+app.post('/auth/register', usersCtrl.signup);
+app.post('/auth/login', usersCtrl.login);
+app.get('/api/me', auth.ensureAuthenticated, usersCtrl.showCurrentUser);
+app.put('/api/me', auth.ensureAuthenticated, usersCtrl.updateCurrentUser);
 
 //post json endpoints
 app.get('/api', controllers.api.index);
@@ -25,6 +42,8 @@ app.get('/api/posts/:postId', controllers.posts.show);
 app.post('/api/posts', controllers.posts.create);
 app.delete('/api/posts/:postId',controllers.posts.destroy);
 app.put('/api/posts/:postId',controllers.posts.update);
+
+
 
 //city json endpoints
 // app.get('/api', controllers.api.index);
