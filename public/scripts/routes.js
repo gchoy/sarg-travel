@@ -2,13 +2,32 @@ configRoutes.$inject = ["$routeProvider", "$locationProvider"];
 
 function configRoutes($routeProvider, $locationProvider) {
 
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  });
+
 $routeProvider
   .when('/', {
     // Should point to index view (public/templates/index.html), not your layout (views/index.html)
   templateUrl: 'templates/index.html'
   })
+<<<<<<< HEAD
   .when('/signup', {
     // Your default directory is already set to public, so public/templates... is not necessary
+=======
+<<<<<<< HEAD
+  .when('/signup', {
+<<<<<<< HEAD
+    // Your default directory is already set to public, so public/templates... is not necessary
+=======
+>>>>>>> a32056f2f3f7d935b591e87fc529473a092a6b7f
+=======
+
+  .when('/signup', {
+    // Your default directory is already set to public, so public/templates... is not necessary
+>>>>>>> 687a6f184a9831a446a8e45afa3e0b638e817055
+>>>>>>> 400ea1948802f317428b4f8b7dfbf06898ff55a6
   templateUrl: 'templates/user/signup.html',
   controller: 'SignupController',
   controllerAs: 'sc',
@@ -45,12 +64,6 @@ $routeProvider
   controllerAs: 'postsIndexCtrl'
 })
 .otherwise({redirectTo: '/'});
-
-$locationProvider.html5Mode({
-  enabled: true,
-  requireBase: false
-});
-
 
 function skipIfLoggedIn($location, $auth) {
   if ($auth.isAuthenticated()) {
