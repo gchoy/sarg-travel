@@ -2,12 +2,17 @@ configRoutes.$inject = ["$routeProvider", "$locationProvider"];
 
 function configRoutes($routeProvider, $locationProvider) {
 
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  });
+
 $routeProvider
   .when('/', {
   templateUrl: 'views/index.html'
   })
-  .when('/register', {
-  templateUrl: 'public/templates/user/register.html',
+  .when('/signup', {
+  templateUrl: 'templates/user/signup.html',
   controller: 'SignupController',
   controllerAs: 'sc',
   resolve: {
@@ -43,12 +48,6 @@ $routeProvider
   controllerAs: 'postsIndexCtrl'
 })
 .otherwise({redirectTo: '/'});
-
-$locationProvider.html5Mode({
-  enabled: true,
-  requireBase: false
-});
-
 
 function skipIfLoggedIn($location, $auth) {
   if ($auth.isAuthenticated()) {

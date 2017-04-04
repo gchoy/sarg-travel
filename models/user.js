@@ -3,22 +3,11 @@ var mongoose = require('mongoose'),
     bcrypt = require('bcryptjs')
 
 var UserSchema = new Schema({
-    name: String,
-    CurrentCity: String,
-    DateJoined: {
-        type: Date,
-        default: Date.now()
-    },
-    email: {
-        type: String,
-        unique: true,
-        lowercase: true
-    },
-    password: {
-        type: String,
-        select: false
-    },
-    image: String
+    created: { type: Date, default: Date.now },
+    updated: { type: Date },
+    email: { type: String, unique: true, lowercase: true },
+    password: { type: String, select: false },
+    displayName: String
 });
 
 // bump date updated

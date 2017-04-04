@@ -1,7 +1,14 @@
-var express = require('express');
+// require express and other modules
+var express = require('express'),
+    app = express(),
+    bodyParser = require('body-parser'),
+    logger = require('morgan'),
+    auth = require('./middleware/auth'),
+    controllers = require("./controllers");
 
-var app = express();
-var bodyParser = require('body-parser');
+// require and load dotenv
+require('dotenv').load();
+app.use(logger('dev'));
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -16,7 +23,26 @@ app.get('/templates/:name', function templates(req, res) {
   res.sendFile(__dirname + '/views/templates/' + name + '.html');
 });
 
-var controllers = require('./controllers');
+app.get('/signup', function registerPage (req, res) {
+  res.sendFile(__dirname + '/public/templates/user/signup.html');
+});
+
+app.get('/profile', function profilePage (req, res) {
+  res.sendFile(__dirname + '/public/templates/user/profile.html');
+});
+
+// app.get('/templates/:name', function templates(req, res) {
+//   var name = req.params.name;
+//   res.sendFile(__dirname + '/views/templates/' + name + '.html');
+// });
+
+
+//auth api
+app.post('/auth/signup', controllers.users.signup);
+app.post('/auth/login', controllers.users.login);
+app.get('/api/me', auth.ensureAuthenticated, controllers.users.showCurrentUser);
+app.put('/api/me', auth.ensureAuthenticated, controllers.users.updateCurrentUser);
+
 
 //post json endpoints
 app.get('/api', controllers.api.index);
@@ -34,6 +60,10 @@ app.put('/api/posts/:postId',controllers.posts.update);
 // app.delete('/api/cities/:cityId',controllers.cities.destroy);
 // app.put('/api/cities/:cityId',controllers.cities.update);
 
+app.get(['/', '/signup', '/login', '/logout', '/profile', '/posts*'], function (req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
+
 app.listen(process.env.PORT || 3000, function () {
-  console.log('Express server is running on http://localhost:3000/');
+  console.log('sarg on 3000....');
 });
