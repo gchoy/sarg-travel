@@ -1,20 +1,29 @@
-<button><a href="/logout">Logout</a></button>
-<h3>{{main.currentUser.displayName}}</h3>
-<hr>
-<p><strong>Username:</strong> {{main.currentUser.displayName}}</p>
-<p><strong>Email:</strong> {{main.currentUser.email}}</p>
-<p><strong>Joined:</strong> {{main.currentUser.created}}</p>
-<p><strong>Posts:</strong> {{ 0 }}</p>
+<div ng-controller="ProfileController as profileCtrl">
 
-<hr>
-<a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
+  <button><a href="/logout">Logout</a></button>
+  <h3>{{main.currentUser.displayName}}</h3>
+  <hr>
+  <p><strong>Username:</strong> {{main.currentUser.displayName}}</p>
+  <p><strong>Email:</strong> {{main.currentUser.email}}</p>
+  <p><strong>Joined:</strong> {{main.currentUser.created}}</p>
+  <p><strong>Posts:</strong> {{ 0 }}</p>
+  <p><strong>Posts:</strong> {{ main.currentUser.user_id }}</p>
 
-<form ng-submit="profileCtrl.updateProfile()" ng-show="profileCtrl.showEditForm">
-  <div class="form-group">
-    <input type="text" ng-model="profileCtrl.new_profile.displayName" class="form-control" placeholder="Username">
-  </div>
-  <div class="form-group">
-    <input type="text" ng-model="profileCtrl.new_profile.email" class="form-control" placeholder="Email">
-  </div>
-  <input type="submit" value="Save Profile" class="btn btn-block btn-info">
-</form>
+  <!-- <script type="text/javascript">
+    console.log({{main.currentUser}});
+  </script> -->
+
+  <hr>
+  <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
+
+  <form ng-submit="profileCtrl.updateProfile()" ng-show="profileCtrl.showEditForm">
+    <div class="form-group">
+      <input type="text" ng-model="profileCtrl.new_profile.displayName" class="form-control" placeholder="Username">
+    </div>
+    <div class="form-group">
+      <input type="text" ng-model="profileCtrl.new_profile.email" class="form-control" placeholder="Email">
+    </div>
+    <input type="submit" value="Save Profile" class="btn btn-block btn-info">
+  </form>
+
+</div>

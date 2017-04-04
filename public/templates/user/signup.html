@@ -4,7 +4,7 @@
 
 <form ng-submit="sc.signup()">
   <label>Name:</label>
-    <input  class="form-control" type="text" name="Name" required  placeholder="type your name here" ng-model="sc.new_user.name">
+    <input  class="form-control" type="text" name="Name" required  placeholder="type your name here" ng-model="sc.new_user.displayName">
     <br>
   <label>Email:</label>
     <input  class="form-control" type="text" name="Email" pattern=".{3,}"   required title="3 characters minimum" placeholder="type your email here" ng-model="sc.new_user.email">
