@@ -1,9 +1,13 @@
+
+// require express and other modules
 var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     logger = require('morgan'),
     auth = require('./middleware/auth'),
-    controllers = require('./controllers');
+    controllers = require("./controllers");
+
+app.use(logger('dev'));
 
 // require and load dotenv
 require('dotenv').load();
@@ -21,19 +25,28 @@ app.get('/templates/:name', function templates(req, res) {
   res.sendFile(__dirname + '/views/templates/' + name + '.html');
 });
 
+
+app.get('/signup', function registerPage (req, res) {
+  res.sendFile(__dirname + '/public/templates/user/signup.html');
+});
+
 app.get('/profile', function profilePage (req, res) {
   res.sendFile(__dirname + '/public/templates/user/profile.html');
 });
 
-app.get('/register', function registerPage (req, res) {
-  res.sendFile(__dirname + '/public/templates/user/register.html');
-});
 
-var usersCtrl = controllers.users;
-app.post('/auth/register', usersCtrl.signup);
-app.post('/auth/login', usersCtrl.login);
-app.get('/api/me', auth.ensureAuthenticated, usersCtrl.showCurrentUser);
-app.put('/api/me', auth.ensureAuthenticated, usersCtrl.updateCurrentUser);
+// app.get('/templates/:name', function templates(req, res) {
+//   var name = req.params.name;
+//   res.sendFile(__dirname + '/views/templates/' + name + '.html');
+// });
+
+
+//auth api
+app.post('/auth/signup', controllers.users.signup);
+app.post('/auth/login', controllers.users.login);
+app.get('/api/me', auth.ensureAuthenticated, controllers.users.showCurrentUser);
+app.put('/api/me', auth.ensureAuthenticated, controllers.users.updateCurrentUser);
+
 
 //post json endpoints
 app.get('/api', controllers.api.index);
@@ -53,6 +66,10 @@ app.put('/api/posts/:postId',controllers.posts.update);
 // app.delete('/api/cities/:cityId',controllers.cities.destroy);
 // app.put('/api/cities/:cityId',controllers.cities.update);
 
+app.get(['/', '/signup', '/login', '/logout', '/profile', '/posts*'], function (req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
+
 app.listen(process.env.PORT || 3000, function () {
-  console.log('Express server is running on http://localhost:3000/');
+  console.log('sarg on 3000....');
 });
