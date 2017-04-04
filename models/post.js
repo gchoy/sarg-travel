@@ -7,6 +7,10 @@ var PostSchema = new Schema({
   postBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
+  },
+  cityName: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'City'
   }
 });
 

@@ -42,7 +42,7 @@ function update(req, res) {
    var id = req.params.postId;
    db.Post.findOneAndUpdate({_id:id}, req.body, function(err, foundPost) {
 
-       if(err) { console.log('saving altered cat failed'); }
+       if(err) { console.log('saving altered post failed'); }
        res.json(foundPost);
      });
 }
