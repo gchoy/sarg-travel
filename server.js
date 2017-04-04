@@ -48,12 +48,11 @@ app.put('/api/posts/:postId',controllers.posts.update);
 
 
 //city json endpoints
-// app.get('/api', controllers.api.index);
-// app.get('/api/cities', controllers.cities.index);
-// app.get('/api/cities/:cityId', controllers.cities.show);
-// app.post('/api/cities', controllers.cities.create);
-// app.delete('/api/cities/:cityId',controllers.cities.destroy);
-// app.put('/api/cities/:cityId',controllers.cities.update);
+app.get('/api/city', controllers.city.index);
+app.get('/api/city/:cityId', controllers.city.show);
+app.post('/api/city', controllers.city.create);
+app.delete('/api/city/:cityId',controllers.city.destroy);
+app.put('/api/city/:cityId',controllers.city.update);
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('sarge is on 3000 ...');
