@@ -25,12 +25,16 @@ app.get('/profile', function profilePage (req, res) {
   res.sendFile(__dirname + '/public/templates/user/profile.html');
 });
 
-app.get('/register', function registerPage (req, res) {
-  res.sendFile(__dirname + '/public/templates/user/register.html');
+app.get('/signup', function signupPage (req, res) {
+  res.sendFile(__dirname + '/public/templates/user/signup.html');
 });
 
+// app.get('/logout', function logoutPage(req, res){
+//   res.sendFile(__dirname + '/views/index.html')
+// })
+
 var usersCtrl = controllers.users;
-app.post('/auth/register', usersCtrl.signup);
+app.post('/auth/signup', usersCtrl.signup);
 app.post('/auth/login', usersCtrl.login);
 app.get('/api/me', auth.ensureAuthenticated, usersCtrl.showCurrentUser);
 app.put('/api/me', auth.ensureAuthenticated, usersCtrl.updateCurrentUser);
