@@ -12,11 +12,17 @@ $routeProvider
     // Should point to index view (public/templates/index.html), not your layout (views/index.html)
   templateUrl: 'templates/index.html'
   })
+<<<<<<< HEAD
   .when('/signup', {
 <<<<<<< HEAD
     // Your default directory is already set to public, so public/templates... is not necessary
 =======
 >>>>>>> a32056f2f3f7d935b591e87fc529473a092a6b7f
+=======
+
+  .when('/signup', {
+    // Your default directory is already set to public, so public/templates... is not necessary
+>>>>>>> 687a6f184a9831a446a8e45afa3e0b638e817055
   templateUrl: 'templates/user/signup.html',
   controller: 'SignupController',
   controllerAs: 'sc',
