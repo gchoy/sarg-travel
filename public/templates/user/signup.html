@@ -4,7 +4,7 @@
 
 <form ng-submit="sc.signup()">
   <label>Name:</label>
-    <input  class="form-control" type="text" name="Name" required  placeholder="type your name here" ng-model="sc.new_user.displayName">
+    <input  class="form-control" type="text" name="Name" required  placeholder="type your name here" ng-model="sc.new_user.name">
     <br>
   <label>Email:</label>
     <input  class="form-control" type="text" name="Email" pattern=".{3,}"   required title="3 characters minimum" placeholder="type your email here" ng-model="sc.new_user.email">
@@ -12,5 +12,9 @@
   <label>Password:</label>
     <input class="form-control" type="password" name="password" pattern=".{3,}"   required title="3 characters minimum" placeholder="type your password here" ng-model="sc.new_user.password">
     <br>
+<<<<<<< HEAD:public/templates/user/signup.html
     <button type="submit" class="btn btn-primary">signup</button>
+=======
+    <button type="submit" class="btn btn-primary">Signup</button>
+>>>>>>> a32056f2f3f7d935b591e87fc529473a092a6b7f:public/templates/user/signup.html
 </form>
