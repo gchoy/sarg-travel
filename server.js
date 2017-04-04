@@ -66,7 +66,10 @@ app.get('/profile', function profilePage (req, res) {
 });
 
 <<<<<<< HEAD
+=======
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 400ea1948802f317428b4f8b7dfbf06898ff55a6
 app.get('/signup', function signupPage (req, res) {
   res.sendFile(__dirname + '/public/templates/user/signup.html');
 });

@@ -14,6 +14,10 @@ $routeProvider
   })
 <<<<<<< HEAD
   .when('/signup', {
+    // Your default directory is already set to public, so public/templates... is not necessary
+=======
+<<<<<<< HEAD
+  .when('/signup', {
 <<<<<<< HEAD
     // Your default directory is already set to public, so public/templates... is not necessary
 =======
@@ -23,6 +27,7 @@ $routeProvider
   .when('/signup', {
     // Your default directory is already set to public, so public/templates... is not necessary
 >>>>>>> 687a6f184a9831a446a8e45afa3e0b638e817055
+>>>>>>> 400ea1948802f317428b4f8b7dfbf06898ff55a6
   templateUrl: 'templates/user/signup.html',
   controller: 'SignupController',
   controllerAs: 'sc',
