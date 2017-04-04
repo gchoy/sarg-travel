@@ -21,10 +21,6 @@ app.get('/templates/:name', function templates(req, res) {
   res.sendFile(__dirname + '/views/templates/' + name + '.html');
 });
 
-app.get('/profile', function profilePage (req, res) {
-  res.sendFile(__dirname + '/public/templates/user/profile.html');
-});
-
 app.get('/login', function loginPage (req, res) {
   res.sendFile(__dirname + '/public/templates/auth/login.html');
 });

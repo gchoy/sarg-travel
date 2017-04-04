@@ -44,14 +44,15 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="#">SARG-Travel</a></li>
+          <li><a href="/">SARG-Travel</a></li>
         </ul>
+        <button><a href="/logout">Logout</a></button>
         <ul class="nav navbar-nav navbar-right">
           <!-- You should target your hrefs to where you defined them in routes.js -->
-          <li><a href="/signup">Sign Up <i class="fa fa-user-plus" aria-hidden="true"></i>
-          </a></li>
-          <li><a href="/login">Log In <i class="fa fa-user" aria-hidden="true"></i>
-          </a></li>
+          <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
+          <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
+          <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.displayName}}'s Profile</a></li>
+          <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
