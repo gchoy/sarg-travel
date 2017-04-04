@@ -1,3 +1,4 @@
+
 // require express and other modules
 var express = require('express'),
     app = express(),
@@ -6,9 +7,10 @@ var express = require('express'),
     auth = require('./middleware/auth'),
     controllers = require("./controllers");
 
+app.use(logger('dev'));
+
 // require and load dotenv
 require('dotenv').load();
-app.use(logger('dev'));
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -23,6 +25,7 @@ app.get('/templates/:name', function templates(req, res) {
   res.sendFile(__dirname + '/views/templates/' + name + '.html');
 });
 
+
 app.get('/signup', function registerPage (req, res) {
   res.sendFile(__dirname + '/public/templates/user/signup.html');
 });
@@ -30,6 +33,7 @@ app.get('/signup', function registerPage (req, res) {
 app.get('/profile', function profilePage (req, res) {
   res.sendFile(__dirname + '/public/templates/user/profile.html');
 });
+
 
 // app.get('/templates/:name', function templates(req, res) {
 //   var name = req.params.name;
@@ -51,6 +55,8 @@ app.get('/api/posts/:postId', controllers.posts.show);
 app.post('/api/posts', controllers.posts.create);
 app.delete('/api/posts/:postId',controllers.posts.destroy);
 app.put('/api/posts/:postId',controllers.posts.update);
+
+
 
 //city json endpoints
 // app.get('/api', controllers.api.index);

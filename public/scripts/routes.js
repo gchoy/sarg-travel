@@ -9,9 +9,12 @@ function configRoutes($routeProvider, $locationProvider) {
 
 $routeProvider
   .when('/', {
-  templateUrl: 'views/index.html'
+    // Should point to index view (public/templates/index.html), not your layout (views/index.html)
+  templateUrl: 'templates/index.html'
   })
+
   .when('/signup', {
+    // Your default directory is already set to public, so public/templates... is not necessary
   templateUrl: 'templates/user/signup.html',
   controller: 'SignupController',
   controllerAs: 'sc',
