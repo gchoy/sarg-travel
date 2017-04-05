@@ -32,6 +32,9 @@
   <script type="text/javascript" src="scripts/controllers/cityShowController.js"></script>
   <script type="text/javascript" src="scripts/routes.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme" rel="stylesheet">
+
 </head>
 <body ng-controller="MainController as main">
   <nav class="navbar navbar-default">
@@ -50,7 +53,7 @@
         <ul class="nav navbar-nav navbar-left">
           <li><a href="/">SARG-Travel</a></li>
         </ul>
-        <button><a href="/logout">Logout</a></button>
+
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/cities">Cities</a></li>
           <li><a href="/posts">Posts</a></li>
@@ -59,6 +62,7 @@
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
           <li ng-show="main.currentUser.isLoggedIn()"><a href="/profile">{{main.currentUser.displayName}}'s Profile</a></li>
           <li ng-show="main.currentUser.isLoggedIn()"><a href="/logout">Log Out</a></li>
+          <!-- <button><a href="/logout">Logout</a></button> -->
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
