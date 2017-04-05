@@ -40,6 +40,39 @@ $routeProvider
     loginRequired: loginRequired
   }
 })
+
+
+
+
+.when('/posts', {
+  templateUrl: 'templates/posts/index.html',
+  controller: 'PostsIndexController',
+  controllerAs: 'postsIndexCtrl'
+})
+.when('/posts/new', {
+  templateUrl: '/templates/posts/new.html',
+  controller: 'PostsNewController',
+  controllerAs: 'postsNewCtrl',
+  resolve: {
+    loginRequired: loginRequired
+  }
+})
+.when('/posts/:postId', {
+  templateUrl: '/templates/posts/show.html',
+  controller: 'PostsShowController',
+  controllerAs: 'postsShowCtrl'
+})
+.when('/posts/:postId/edit', {
+  templateUrl: '/templates/posts/edit.html',
+  controller: 'PostsEditController',
+  controllerAs: 'postsEditCtrl',
+  resolve: {
+    loginRequired: loginRequired
+  }
+})
+
+
+
 .when('/cities', {
   templateUrl: '/templates/cities/index.html',
   controller: 'CitiesIndexController',

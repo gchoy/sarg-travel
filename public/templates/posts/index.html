@@ -7,9 +7,14 @@
 <div ng-if="postsIndexCtrl.posts.length">
   <div ng-repeat="post in postsIndexCtrl.posts">
     <p>
-      <strong><a ng-href="/posts/{{post._id}}">{{post}}</a></strong>
+      <strong><a ng-href="/posts/{{post._id}}">{{post.title}}</a></strong>
+      <p>
+        {{post.post}}
+      </p>
+      {{post}}
+      <strong>{{post.user.displayName}}</strong>
     </p>
   </div>
 </div>
 
-<a class="btn btn-primary btn-block" href="/posts/new" ng-show="main.currentUser.isLoggedIn()">Add New City</a>
+<a class="btn btn-primary btn-block" href="/posts/new" ng-show="main.currentUser.isLoggedIn()">Add New Post</a>
