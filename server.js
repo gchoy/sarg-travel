@@ -35,6 +35,10 @@ app.get('/posts*', function postsPage (req, res) {
   res.sendFile(__dirname + '/public/templates/posts/index.html');
 });
 
+// app.get('/cities', function cityPage(req, res){
+//   res.sendFile(__dirname + '/public/templates/cities/index.html')
+// });
+
 
 var usersCtrl = controllers.users;
 app.post('/auth/signup', usersCtrl.signup);
@@ -53,11 +57,11 @@ app.put('/api/posts/:postId',controllers.posts.update);
 
 
 //city json endpoints
-app.get('/api/city', controllers.city.index);
-app.get('/api/city/:cityId', controllers.city.show);
-app.post('/api/city', controllers.city.create);
-app.delete('/api/city/:cityId',controllers.city.destroy);
-app.put('/api/city/:cityId',controllers.city.update);
+app.get('/api/cities', controllers.city.index);
+app.get('/api/cities/:cityId', controllers.city.show);
+app.post('/api/cities', controllers.city.create);
+app.delete('/api/cities/:cityId',controllers.city.destroy);
+app.put('/api/cities/:cityId',controllers.city.update);
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('sarge is on 3000 ...');

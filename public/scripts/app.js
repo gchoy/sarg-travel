@@ -13,6 +13,10 @@ angular
   .controller('SignupController', SignupController)
   .controller('LogoutController', LogoutController)
   .controller('ProfileController', ProfileController)
+  .controller('CitiesIndexController', CitiesIndexController)
+  .controller('CitiesShowController',CitiesShowController)
+  .controller('CitiesEditController',CitiesEditController)
+  .controller('CitiesNewController', CitiesNewController)
   .service('UserService', UserService)
   .config(configRoutes)
   ;

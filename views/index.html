@@ -26,6 +26,10 @@
   <script type="text/javascript" src="scripts/controllers/userProfileController.js"></script>
   <script type="text/javascript" src="scripts/controllers/userSignupController.js"></script>
   <script type="text/javascript" src="scripts/services/user.service.js"></script>
+  <script type="text/javascript" src="scripts/controllers/cityIndexController.js"></script>
+  <script type="text/javascript" src="scripts/controllers/cityEditController.js"></script>
+  <script type="text/javascript" src="scripts/controllers/cityNewController.js"></script>
+  <script type="text/javascript" src="scripts/controllers/cityShowController.js"></script>
   <script type="text/javascript" src="scripts/routes.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
 </head>
@@ -48,6 +52,7 @@
         </ul>
         <button><a href="/logout">Logout</a></button>
         <ul class="nav navbar-nav navbar-right">
+          <li><a href="/cities">Cities</a></li>
           <!-- You should target your hrefs to where you defined them in routes.js -->
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/signup">Sign Up</a></li>
           <li ng-show="!main.currentUser.isLoggedIn()"><a href="/login">Log In</a></li>
