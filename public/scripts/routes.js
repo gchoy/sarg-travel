@@ -41,12 +41,12 @@ $routeProvider
   }
 })
 .when('/cities', {
-  templateUrl: 'templates/cities/index.html',
+  templateUrl: '/templates/cities/index.html',
   controller: 'CitiesIndexController',
   controllerAs: 'citiesIndexCtrl'
 })
 .when('/cities/new', {
-  templateUrl: 'templates/cities/new.html',
+  templateUrl: '/templates/cities/new.html',
   controller: 'CitiesNewController',
   controllerAs: 'citiesNewCtrl',
   resolve: {
@@ -59,7 +59,7 @@ $routeProvider
   controllerAs: 'citiesShowCtrl'
 })
 .when('/cities/:cityId/edit', {
-  templateUrl: 'templates/cities/edit.html',
+  templateUrl: '/templates/cities/edit.html',
   controller: 'CitiesEditController',
   controllerAs: 'citiesEditCtrl',
   resolve: {

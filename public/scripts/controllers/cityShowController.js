@@ -4,11 +4,8 @@ function CitiesShowController ($location, $http, $routeParams) {
   var vm = this;
   vm.city = {};
 
-  var id = $routeParams.id;
-  console.log(id);
+  var id = $routeParams.cityId;
   get(); // fetch one city (show)
-
-  ////
 
   function get() {
     $http
