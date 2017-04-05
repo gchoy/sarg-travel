@@ -5,7 +5,7 @@ function CitiesEditController ($location, $http, $routeParams) {
   vm.destroy = destroy;
   vm.city = {}; // form data
 
-  var id = $routeParams.id;
+  var id = $routeParams.cityId;
   get(); // fetch one city (show)
 
   ////

@@ -5,11 +5,11 @@ var PostSchema = new Schema({
   title: String,
   post: String,
   postBy: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'User'
   },
   cityName: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'City'
   }
 });

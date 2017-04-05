@@ -1,16 +1,20 @@
 <h2>Posts</h2>
 <hr>
 
-<body ng-controller="postsIndexCtrl">
-<p ng-if="!posts.length">No posts yet.</p>
 
-<div ng-if="posts.length">
-  <div ng-repeat="post in posts">
+<p ng-if="!postsIndexCtrl.posts.length">No posts yet.</p>
+
+<div ng-if="postsIndexCtrl.posts.length">
+  <div ng-repeat="post in postsIndexCtrl.posts">
     <p>
-      <strong><a ng-href="/posts/{{post._id}}">{{post.title}}</a></strong> - {{post.post}} -- {{post.postBy}} -- {{post.CityName}}
+      <strong><a ng-href="/posts/{{post._id}}">{{post.title}}</a></strong>
+      <p>
+        {{post.post}}
+      </p>
+      {{post}}
+      <strong>{{post.user.displayName}}</strong>
     </p>
   </div>
 </div>
-</body>
 
-<a class="btn btn-primary btn-block" href="/posts/new">Add New Post</a>
+<a class="btn btn-primary btn-block" href="/posts/new" ng-show="main.currentUser.isLoggedIn()">Add New Post</a>
