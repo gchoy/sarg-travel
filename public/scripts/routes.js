@@ -40,10 +40,31 @@ $routeProvider
     loginRequired: loginRequired
   }
 })
-.when('/posts', {
-  templateUrl: 'templates/posts/index.html',
-  controller: 'PostsIndexController',
-  controllerAs: 'postsIndexCtrl'
+.when('/cities', {
+  templateUrl: 'templates/cities/index.html',
+  controller: 'CitiesIndexController',
+  controllerAs: 'citiesIndexCtrl'
+})
+.when('/cities/new', {
+  templateUrl: 'templates/cities/new.html',
+  controller: 'CitiesNewController',
+  controllerAs: 'citiesNewCtrl',
+  resolve: {
+    loginRequired: loginRequired
+  }
+})
+.when('/cities/:cityId', {
+  templateUrl: '/templates/cities/show.html',
+  controller: 'CitiesShowController',
+  controllerAs: 'citiesShowCtrl'
+})
+.when('/cities/:cityId/edit', {
+  templateUrl: 'templates/cities/edit.html',
+  controller: 'CitiesEditController',
+  controllerAs: 'citiesEditCtrl',
+  resolve: {
+    loginRequired: loginRequired
+  }
 })
 
 .otherwise({redirectTo: '/'});
