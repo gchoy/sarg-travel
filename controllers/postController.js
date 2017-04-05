@@ -1,16 +1,24 @@
-var db = require('../models');
+var auth = require('../middleware/auth');
+var db = require('../models'),
+    User = db.User,
+    Post = db.Post;
 
 //GET /api/posts
 function index(req, res) {
-  db.Post.find({}, function(err, allPosts) {
-    //console.log(allPosts);
-    res.json(allPosts);
-  });
+  Post
+    .find({})
+    .populate('user')
+    .exec(function(err, posts){
+      if (err || !posts || !posts.length) {
+        return res.status(404).send({message: 'Posts not found.'})
+      }
+      res.send(posts);
+    })
 }
 
 //GET /api/posts/postId
 function show(req, res) {
-  db.Post.findById(req.params.postId, function(err, foundPost) {
+  Post.findById(req.params.postId, function(err, foundPost) {
     if(err) { console.log('postController.show error', err); }
     console.log('postController.show responding with', foundPost);
     res.json(foundPost);
@@ -18,20 +26,20 @@ function show(req, res) {
 }
 
 //POST /api/posts/
-function create(req,res) {
- var userInput = req.body;
-  console.log('body',userInput);
-
-  db.Post.create(userInput, function(err, post){
-    if (err) {console.log('error', err);}
-    console.log(post);
-    res.json(post);
-  });
+function create(req, res){
+  var new_post = new Post(req.body);
+  // console.log('value of req.body: ', req.body);
+  // console.log('new post: ', new_post);
+  console.log(req.user_id);
+  new_post.user = req.user_id;
+  // console.log('new post user ID: ', new_post.user);
+  new_post.save(function(err, new_post){
+    res.send(new_post);
+  })
 }
-
 //DELETE  /api/posts/:postId
 function destroy(req, res) {
-  db.Post.findOneAndRemove({ _id: req.params.postId }, function(err, foundPost){
+  Post.findOneAndRemove({ _id: req.params.postId }, function(err, foundPost){
 
     res.json(foundPost);
   });
@@ -41,7 +49,7 @@ function destroy(req, res) {
 function update(req, res) {
    console.log('updating data', req.body);
    var id = req.params.postId;
-   db.Post.findOneAndUpdate({_id:id}, req.body, function(err, foundPost) {
+   Post.findOneAndUpdate({_id:id}, req.body, function(err, foundPost) {
 
        if(err) { console.log('saving altered post failed'); }
        res.json(foundPost);
