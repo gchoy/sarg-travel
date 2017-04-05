@@ -3,6 +3,7 @@ var db = require('../models');
 //GET /api/posts
 function index(req, res) {
   db.Post.find({}, function(err, allPosts) {
+    //console.log(allPosts);
     res.json(allPosts);
   });
 }

@@ -7,6 +7,7 @@ $routeProvider
     // Should point to index view (public/templates/index.html), not your layout (views/index.html)
   templateUrl: 'templates/index.html'
   })
+
   .when('/signup', {
     // Your default directory is already set to public, so public/templates... is not necessary
   templateUrl: 'templates/user/signup.html',
@@ -44,6 +45,7 @@ $routeProvider
   controller: 'PostsIndexController',
   controllerAs: 'postsIndexCtrl'
 })
+
 .otherwise({redirectTo: '/'});
 
 $locationProvider.html5Mode({
