@@ -31,6 +31,11 @@ app.get('/signup', function signupPage (req, res) {
   res.sendFile(__dirname + '/public/templates/user/signup.html');
 });
 
+app.get('/posts*', function postsPage (req, res) {
+  res.sendFile(__dirname + '/public/templates/posts/index.html');
+});
+
+
 var usersCtrl = controllers.users;
 app.post('/auth/signup', usersCtrl.signup);
 app.post('/auth/login', usersCtrl.login);
