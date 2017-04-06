@@ -29,8 +29,8 @@ app.get('/api', controllers.api.index);
 app.get('/api/posts', controllers.posts.index);
 app.get('/api/posts/:postId', controllers.posts.show);
 app.post('/api/posts', auth.ensureAuthenticated, controllers.posts.create);
-app.delete('/api/posts/:postId',controllers.posts.destroy);
-app.put('/api/posts/:postId',controllers.posts.update);
+app.delete('/api/posts/:postId', auth.ensureAuthenticated, controllers.posts.destroy);
+app.put('/api/posts/:postId', auth.ensureAuthenticated, controllers.posts.update);
 
 
 

@@ -17,8 +17,7 @@ function index(req, res) {
 
 function create(req, res){
   var new_post = new Post(req.body);
-console.log('this is the req before assigning to anything:', req);
-  new_post.user = req.user_id;
+  new_post.user = req.user_id;//this is getting the user_id from authentication. need the auth middleware in routes in server.js
   new_post.save(function(err, new_post){
     res.send(new_post);
   })
