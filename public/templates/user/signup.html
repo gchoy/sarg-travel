@@ -1,8 +1,10 @@
 <div class="page-header" ng-controller="SignupController as sc">
-  <h1>User Registration</h1>
+  <h1 id="userregistrationtitle">User Registration</h1>
 </div>
+<div id="userregistrationpic">
 
-<form ng-submit="sc.signup()">
+
+<form id="formsubmitpage" ng-submit="sc.signup()">
   <label>Name:</label>
     <input  class="form-control" type="text" name="Name" required  placeholder="type your name here" ng-model="sc.new_user.displayName">
     <br>
@@ -14,3 +16,4 @@
     <br>
     <button type="submit" class="btn btn-primary">signup</button>
 </form>
+</div>

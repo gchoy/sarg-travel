@@ -1,3 +1,5 @@
+/*SPLASH PAGE*/
+
 #welcome {
  text-align: center;
  color: rgb(59, 175, 195);
@@ -10,11 +12,16 @@
 
 #search {
  text-align: center;
- margin-top: 180px;
+ margin-top: 200px;
+ font-family: 'Lobster', cursive;
+ font-size: 23px;
 }
 
 #searchedCities {
   text-align: center;
+  font-family: 'Lobster', cursive;
+  margin-top: 5px;
+  font-size: 18px;
 }
 
 .background {
@@ -26,6 +33,23 @@
  margin-bottom: -50px;
 }
 
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 40%;
+    margin-top: 45px;
+    box-shadow: 10px 10px 5px;
+}
+
+.footer {
+ font-family: 'Lobster', cursive;
+
+ font-size: 20px;
+ text-align: center;
+ padding: 5px;
+ margin-top: 30px;
+}
+
+/*NAV BAR*/
 /*.navbar {
  position: fixed;
 }*/
@@ -37,16 +61,81 @@
  font-size: 20px;
 }*/
 
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-    width: 40%;
-    margin: auto;
-    box-shadow: 10px 10px 5px;
+/*PROFILE PAGE*/
+
+#profilepage {
+  margin-top: -20px;
+  padding-bottom: 20px;
 }
 
-.footer {
- font-family: 'Lobster', cursive;
- font-size: 20px;
- text-align: center;
- padding: 5px;
+#profile{
+  padding-top: 10px;
+}
+
+#editprofile {
+  margin-right: 50%;
+  margin-left: 2%;
+}
+
+.defaultinput {
+
+  font-size: 18px;
+}
+
+.profilefont {
+  font-family: 'Times New Roman', cursive;
+  font-size: 18px;
+}
+
+#savebutton {
+  width: 15%;
+  margin-left: 2%;
+
+}
+
+.edituserprofile {
+  width: 25%;
+  margin-left: 2%;
+}
+
+.card-block {
+  margin-left: 7%;
+  margin-right: 10%;
+  width: 500px;
+
+}
+
+#userinfo {
+  margin-top: 5%;
+}
+
+#editbutton {
+  margin-left: 20px;
+}
+
+/*USER REGISTRATION PAGE*/
+
+.form-control {
+  width: 40%;
+}
+
+#userregistrationtitle {
+  margin-left: 3%;
+}
+#formsubmitpage {
+  margin-left: 3%;
+
+}
+
+#userregistrationpic {
+
+}
+
+/*LOGIN PAGE*/
+.text-muted {
+  text-align: center;
+}
+
+.loginuser {
+  text-align: center;
 }
