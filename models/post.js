@@ -4,10 +4,9 @@ var mongoose = require('mongoose'),
     City = require('./city');
 
 var PostSchema = new Schema({
-  title: String,
-  post: String,
-  user: {type: Schema.Types.ObjectId, ref: 'User'},
-  nameOfCity: {type: Schema.Types.ObjectId, ref: 'City'}//post has one city and one user 
+  _city:  {type: Schema.Types.ObjectId, ref: 'City'},
+  content: String,
+  _user: {type: Schema.Types.ObjectId, ref: 'User'}
 });
 
 var Post = mongoose.model("Post", PostSchema);

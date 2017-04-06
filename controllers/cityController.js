@@ -1,18 +1,18 @@
-var auth = require('../middleware/auth');
-var db = require('../models'),
+var auth = require('../middleware/auth'),
+    db = require('../models'),
     User = db.User,
     City = db.City;
 
 //GET /api/city
 function index(req, res) {
-  db.City.find({}, function(err, allCities) {
+  City.find({}, function(err, allCities) {
     res.json(allCities);
   });
 }
 
 //GET /api/city/cityId
 function show(req, res) {
-  db.City.findById(req.params.cityId, function(err, foundCity) {
+  City.findById(req.params.cityId, function(err, foundCity) {
     if(err) { console.log('cityController.show error', err); }
     console.log('cityController.show responding with', foundCity);
     res.json(foundCity);
@@ -30,7 +30,7 @@ function create(req, res){
 
 //DELETE  /api/city/:cityId
 function destroy(req, res) {
-  db.City.findOneAndRemove({ _id: req.params.cityId }, function(err, foundCity){
+  City.findOneAndRemove({ _id: req.params.cityId }, function(err, foundCity){
 
     res.json(foundCity);
   });
@@ -40,7 +40,7 @@ function destroy(req, res) {
 function update(req, res) {
    console.log('updating data', req.body);
    var id = req.params.cityId;
-   db.City.findOneAndUpdate({_id:id}, req.body, function(err, foundCity) {
+   City.findOneAndUpdate({_id:id}, req.body, function(err, foundCity) {
 
        if(err) { console.log('saving altered city failed'); }
        res.json(foundCity);

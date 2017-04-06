@@ -31,6 +31,7 @@ function ensureAuthenticated(req, res, next) {
 */
 function createJWT(user) {
   var payload = {
+    created: new Date(),
     user_id: user._id, // required by satellizer
     displayName: user.displayName,
     email: user.email,
