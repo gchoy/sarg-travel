@@ -13,7 +13,7 @@ function PostsNewController ($location, $http) {
 
     function onCreateSuccess(response){
       console.log(response);
-      $location.path('/posts/' + response.data.postId)
+      $location.path('/posts/' + response.data._id)
     }
 
     function onCreateError(response){

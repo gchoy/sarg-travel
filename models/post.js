@@ -1,10 +1,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var User = require('./user')
 
 var PostSchema = new Schema({
   title: String,
   post: String,
-  postBy: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
