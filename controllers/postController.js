@@ -3,7 +3,6 @@ var db = require('../models'),
     User = db.User,
     Post = db.Post;
 
-//GET /api/posts
 function index(req, res) {
   Post
     .find({})
@@ -16,7 +15,14 @@ function index(req, res) {
     })
 }
 
-//GET /api/posts/postId
+function create(req, res){
+  var new_post = new Post(req.body);
+  new_post.user = req.user_id;//this is getting the user_id from authentication. need the auth middleware in routes in server.js
+  new_post.save(function(err, new_post){
+    res.send(new_post);
+  })
+}
+
 function show(req, res){
   Post
     .findById(req.params.postId)
@@ -25,39 +31,50 @@ function show(req, res){
       if (err || !found_post) {
         return res.status(404).send({message: 'Post not found.'})
       }
+
       res.send(found_post);
     })
 }
 
-//POST /api/posts/
-function create(req, res){
-  var new_post = new Post(req.body);
-  console.log('value of req.body: ', req.body);
-  // console.log('new post: ', new_post);
-  new_post.user = req.user_id;
-  console.log('new post user ID: ', new_post.user);
-  new_post.save(function(err, new_post){
-    res.send(new_post);
-  })
-}
-//DELETE  /api/posts/:postId
-function destroy(req, res) {
-  Post.findOneAndRemove({ _id: req.params.postId }, function(err, foundPost){
+function update(req, res){
+  var query = {
+    _id: req.params.postId
+  };
 
-    res.json(foundPost);
-  });
+  if (req.user_id) {
+    query.user = req.user_id;
+  }
+
+  Post
+    .findOneAndUpdate(query, req.body)
+    .exec(function(err, post){
+      if (err || !post) {
+        console.log(post)
+        return res.status(404).send({messsage: 'Failed to update post.'})
+      }
+      res.status(204).send();
+    })
 }
 
-//PUT /api/posts/:postId
-function update(req, res) {
-   console.log('updating data', req.body);
-   var id = req.params.postId;
-   Post.findOneAndUpdate({_id:id}, req.body, function(err, foundPost) {
+function destroy(req, res){
+  var query = {
+    _id: req.params.postId
+  };
 
-       if(err) { console.log('saving altered post failed'); }
-       res.json(foundPost);
-     });
+  if (req.user_id) {
+    query.user = req.user_id;
+  }
+
+  Post
+    .findOneAndRemove(query)
+    .exec(function(err, post){
+      if (err || !post) {
+        return res.status(404).send({messsage: 'Failed to delete post.'})
+      }
+      res.status(204).send();
+    })
 }
+
 
 module.exports = {
   index:index,

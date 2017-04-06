@@ -6,6 +6,7 @@ function PostsEditController ($location, $http, $routeParams) {
   vm.post = {}; // form data
 
   var id = $routeParams.postId;
+  console.log('this isthe id :', id);
   get(); // fetch one post (show)
 
   ////

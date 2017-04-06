@@ -8,36 +8,15 @@ var express = require('express'),
 // require and load dotenv
 require('dotenv').load();
 
-app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded({extended:true}));
+// configure bodyParser (for receiving form data)
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get('/', function homepage (req, res) {
-  res.sendFile(__dirname + '/views/index.html');
-});
+// serve static files from public folder
+app.use(express.static(__dirname + '/public'));
 
-app.get('/templates/:name', function templates(req, res) {
-  var name = req.params.name;
-  res.sendFile(__dirname + '/views/templates/' + name + '.html');
-});
-
-
-app.get('/login', function loginPage (req, res) {
-  res.sendFile(__dirname + '/public/templates/auth/login.html');
-});
-
-app.get('/signup', function signupPage (req, res) {
-  res.sendFile(__dirname + '/public/templates/user/signup.html');
-});
-
-app.get('/posts*', function postsPage (req, res) {
-  res.sendFile(__dirname + '/public/templates/posts/index.html');
-});
-
-// app.get('/cities', function cityPage(req, res){
-//   res.sendFile(__dirname + '/public/templates/cities/index.html')
-// });
-
+// log api requests
+app.use(logger('dev'));
 
 var usersCtrl = controllers.users;
 app.post('/auth/signup', usersCtrl.signup);
@@ -49,9 +28,9 @@ app.put('/api/me', auth.ensureAuthenticated, usersCtrl.updateCurrentUser);
 app.get('/api', controllers.api.index);
 app.get('/api/posts', controllers.posts.index);
 app.get('/api/posts/:postId', controllers.posts.show);
-app.post('/api/posts', controllers.posts.create);
-app.delete('/api/posts/:postId',controllers.posts.destroy);
-app.put('/api/posts/:postId',controllers.posts.update);
+app.post('/api/posts', auth.ensureAuthenticated, controllers.posts.create);
+app.delete('/api/posts/:postId', auth.ensureAuthenticated, controllers.posts.destroy);
+app.put('/api/posts/:postId', auth.ensureAuthenticated, controllers.posts.update);
 
 
 
@@ -61,6 +40,11 @@ app.get('/api/cities/:cityId', controllers.city.show);
 app.post('/api/cities', auth.ensureAuthenticated, controllers.city.create);
 app.delete('/api/cities/:cityId', auth.ensureAuthenticated, controllers.city.destroy);
 app.put('/api/cities/:cityId', auth.ensureAuthenticated, controllers.city.update);
+
+app.get(['/', '/signup', '/login', '/logout', '/profile', '/posts*'], function (req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
+
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('sarge is on 3000 ...');
