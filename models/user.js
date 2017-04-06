@@ -1,13 +1,15 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
-    bcrypt = require('bcryptjs')
+    bcrypt = require('bcryptjs'),
+    Post = require('./post')
 
 var UserSchema = new Schema({
     created: { type: Date, default: Date.now },
     updated: { type: Date },
     email: { type: String, unique: true, lowercase: true },
     password: { type: String, select: false },
-    displayName: String
+    displayName: String,
+    posts : [{type: Schema.Types.ObjectId, ref: 'Post'}]
 });
 
 // bump date updated
