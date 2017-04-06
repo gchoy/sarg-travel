@@ -1,4 +1,7 @@
-var db = require('../models');
+var auth = require('../middleware/auth');
+var db = require('../models'),
+    User = db.User,
+    City = db.City;
 
 //GET /api/city
 function index(req, res) {
@@ -17,15 +20,12 @@ function show(req, res) {
 }
 
 //POST /api/city/
-function create(req,res) {
- var userInput = req.body;
-  console.log('body',userInput);
-
-  db.City.create(userInput, function(err, city){
-    if (err) {console.log('error', err);}
-    console.log(city);
-    res.json(city);
-  });
+function create(req, res){
+  var new_city = new City(req.body);
+  console.log(req.body);
+  new_city.save(function(err, new_city){
+    res.send(new_city);
+  })
 }
 
 //DELETE  /api/city/:cityId

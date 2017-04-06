@@ -41,7 +41,7 @@ app.post('/api/cities', auth.ensureAuthenticated, controllers.city.create);
 app.delete('/api/cities/:cityId', auth.ensureAuthenticated, controllers.city.destroy);
 app.put('/api/cities/:cityId', auth.ensureAuthenticated, controllers.city.update);
 
-app.get(['/', '/signup', '/login', '/logout', '/profile', '/posts*'], function (req, res) {
+app.get(['/', '/signup', '/login', '/logout', '/cities', '/profile', '/posts*'], function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
