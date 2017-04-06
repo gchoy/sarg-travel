@@ -7,7 +7,7 @@ var PostSchema = new Schema({
   title: String,
   post: String,
   user: {type: Schema.Types.ObjectId, ref: 'User'},
-  cityName: {type: Schema.Types.ObjectId, ref: 'City'}//post has one city and one user 
+  nameOfCity: {type: Schema.Types.ObjectId, ref: 'City'}//post has one city and one user 
 });
 
 var Post = mongoose.model("Post", PostSchema);
