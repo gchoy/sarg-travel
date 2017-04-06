@@ -14,8 +14,6 @@ function CitiesShowController ($location, $http, $routeParams) {
 
     function onGetSuccess(response){
       vm.city = response.data;
-      console.log(response);
-      console.log(response.data);
     }
 
     function onGetError(response){

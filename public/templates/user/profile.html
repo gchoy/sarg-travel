@@ -1,16 +1,11 @@
 <div ng-controller="ProfileController as profileCtrl">
 
-  <button><a href="/logout">Logout</a></button>
   <h3>{{main.currentUser.displayName}}</h3>
   <hr>
   <p><strong>Username:</strong> {{main.currentUser.displayName}}</p>
   <p><strong>Email:</strong> {{main.currentUser.email}}</p>
   <p><strong>Joined:</strong> {{ main.currentUser.user_id }}</p>
   <p><strong>Posts:</strong> {{ 0 }}</p>
-
-  <!-- <script type="text/javascript">
-    console.log({{main.currentUser}});
-  </script> -->
 
   <hr>
   <a href="#" ng-click="profileCtrl.showEditForm=true" ng-hide="profileCtrl.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
