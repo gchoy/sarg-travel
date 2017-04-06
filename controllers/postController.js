@@ -5,7 +5,7 @@ var db = require('../models'),
 
 function index(req, res) {
   Post
-    .find({})
+    .find({_city: "San Francisco"._id})
     .populate('user')
     .exec(function(err, posts){
       if (err || !posts || !posts.length) {
@@ -15,9 +15,23 @@ function index(req, res) {
     })
 }
 
+//TODO: Get all posts that are about a city
+function cityPosts(req, res) {
+  var cityId = req.params.cityId;
+  Post.find({_city: cityId}, function getPostsForOneCity(err, posts){
+    if (err || !posts) {
+      return res.status(404).send({message: 'Post not found.'})
+    }
+
+    res.json(posts);
+  })
+}
+
 function create(req, res){
   var new_post = new Post(req.body);
-  new_post.user = req.user_id;//this is getting the user_id from authentication. need the auth middleware in routes in server.js
+  console.log(new_post);
+  new_post._user = req.user_id;//this is getting the user_id from authentication. need the auth middleware in routes in server.js
+  //new_post._city = //get the city id and put it here.
   new_post.save(function(err, new_post){
     res.send(new_post);
   })
@@ -78,6 +92,7 @@ function destroy(req, res){
 
 module.exports = {
   index:index,
+  cityPosts:cityPosts,
   show:show,
   create:create,
   destroy: destroy,

@@ -41,7 +41,7 @@ postList.push({
 postList.push({
   title: 'London',
   post: 'London is awesome',
-  postBy: shaya._id
+  postBy: shaya._id //this points to the object.id
   });
 
 //City List

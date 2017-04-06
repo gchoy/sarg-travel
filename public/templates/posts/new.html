@@ -1,10 +1,9 @@
 <form ng-submit="postsNewCtrl.create()">
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Title" ng-model="postsNewCtrl.post.title">
-    <input type="text" class="form-control" placeholder="nameOfCity" ng-model="postsNewCtrl.post.nameOfCity">
+    <input type="text" class="form-control" placeholder="City" ng-model="postsNewCtrl.post._city">
   </div>
   <div class="form-group">
-    <textarea class="form-control" placeholder="Content" ng-model="postsNewCtrl.post.post"></textarea>
+    <textarea class="form-control" placeholder="Content" ng-model="postsNewCtrl.post.content"></textarea>
   </div>
   <input type="submit" value="Create Post" class="btn btn-block btn-info">
 </form>
