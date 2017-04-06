@@ -40,7 +40,14 @@ $routeProvider
     loginRequired: loginRequired
   }
 })
-
+.when('/cities/:cityId/posts/new',{
+  templateUrl: '/templates/posts/new.html',
+  controller: 'PostsNewController',
+  controllerAs: 'postsNewCtrl',
+  resolve: {
+    loginRequired: loginRequired
+  }
+})
 
 
 

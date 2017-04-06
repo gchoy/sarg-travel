@@ -37,12 +37,13 @@ app.put('/api/posts/:postId', auth.ensureAuthenticated, controllers.posts.update
 //city json endpoints
 app.get('/api/cities', controllers.city.index);
 app.get('/api/cities/:cityId', controllers.city.show);
-app.post('/api/cities', auth.ensureAuthenticated, controllers.city.create);
+//app.post('/api/cities', auth.ensureAuthenticated, controllers.city.create);
 app.delete('/api/cities/:cityId', auth.ensureAuthenticated, controllers.city.destroy);
 app.get('/api/cities/:cityId/posts', controllers.posts.cityPosts)
+app.post('/api/cities/:cityId/posts', auth.ensureAuthenticated, controllers.posts.create)
 app.put('/api/cities/:cityId', auth.ensureAuthenticated, controllers.city.update);
 
-app.get(['/', '/signup', '/login', '/logout', '/cities', '/profile', '/posts*'], function (req, res) {
+app.get(['/', '/signup', '/login', '/logout', '/cities*', '/profile', '/posts*'], function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 

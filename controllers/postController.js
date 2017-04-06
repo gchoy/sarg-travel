@@ -29,9 +29,10 @@ function cityPosts(req, res) {
 
 function create(req, res){
   var new_post = new Post(req.body);
-  console.log(new_post);
   new_post._user = req.user_id;//this is getting the user_id from authentication. need the auth middleware in routes in server.js
-  //new_post._city = //get the city id and put it here.
+  //var cityId = req.params.cityId;
+  new_post._city = req.params.cityId//get the city id and put it here.
+  console.log('this is the city id:', new_post._city);
   new_post.save(function(err, new_post){
     res.send(new_post);
   })
