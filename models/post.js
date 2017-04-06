@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var PostSchema = new Schema({
   title: String,
   post: String,
-  postBy: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },

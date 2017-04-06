@@ -17,22 +17,25 @@ function index(req, res) {
 }
 
 //GET /api/posts/postId
-function show(req, res) {
-  Post.findById(req.params.postId, function(err, foundPost) {
-    if(err) { console.log('postController.show error', err); }
-    console.log('postController.show responding with', foundPost);
-    res.json(foundPost);
-  });
+function show(req, res){
+  Post
+    .findById(req.params.postId)
+    .populate('user')
+    .exec(function(err, found_post){
+      if (err || !found_post) {
+        return res.status(404).send({message: 'Post not found.'})
+      }
+      res.send(found_post);
+    })
 }
 
 //POST /api/posts/
 function create(req, res){
   var new_post = new Post(req.body);
-  // console.log('value of req.body: ', req.body);
+  console.log('value of req.body: ', req.body);
   // console.log('new post: ', new_post);
-  console.log(req.user_id);
   new_post.user = req.user_id;
-  // console.log('new post user ID: ', new_post.user);
+  console.log('new post user ID: ', new_post.user);
   new_post.save(function(err, new_post){
     res.send(new_post);
   })

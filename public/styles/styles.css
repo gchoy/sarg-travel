@@ -1,20 +1,52 @@
 #welcome {
+ text-align: center;
+ color: rgb(59, 175, 195);
+ font-family: 'Lobster', cursive;
+ font-size: 120px;
+ margin-top: -80px;
+ padding-top: 90px;
+
+}
+
+#search {
+ text-align: center;
+ margin-top: 180px;
+}
+
+#searchedCities {
   text-align: center;
-  color: rgb(77, 113, 48);
-  font-family: 'BioRhyme', serif;
-  font-size: 50px;
-  margin-top: -20px;
-  padding-top: 30px;
 }
 
 .background {
-  background-image: url("../images/background.jpg");
-  min-height: 700px;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: -20px;
+ background-image: url("../images/background.jpg");
+ min-height: 700px;
+ background-size: cover;
+ background-position: center;
+ background-position: fixed;
+ margin-bottom: -50px;
 }
 
-.navbar {
-  border-radius: 0;
+/*.navbar {
+ position: fixed;
+}*/
+
+/*.card-block {
+ background-color: rgb(250, 110, 56);
+ margin: 10%;
+ margin-left: auto;
+ font-size: 20px;
+}*/
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 40%;
+    margin: auto;
+    box-shadow: 10px 10px 5px;
+}
+
+.footer {
+ font-family: 'Lobster', cursive;
+ font-size: 20px;
+ text-align: center;
+ padding: 5px;
 }
