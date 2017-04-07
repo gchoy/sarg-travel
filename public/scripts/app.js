@@ -6,6 +6,7 @@ angular
   ])
   .controller('MainController', MainController)
   .controller('PostsIndexController', PostsIndexController)
+  .controller('PostsCityIndexController', PostsCityIndexController)
   .controller('PostsNewController', PostsNewController)
   .controller('PostsShowController', PostsShowController)
   .controller('PostsEditController', PostsEditController)
