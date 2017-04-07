@@ -50,8 +50,8 @@ $routeProvider
 })
 .when('/cities/:cityId/posts', {
   templateUrl: '/templates/posts/index.html',
-  controller: 'PostsIndexController',
-  controllerAs: 'postsIndexCtrl',
+  controller: 'PostsCityIndexController',
+  controllerAs: 'postsCityIndexCtrl',
   resolve: {
     loginRequired: loginRequired
   }

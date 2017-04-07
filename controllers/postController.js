@@ -18,11 +18,11 @@ function index(req, res) {
 //TODO: Get all posts that are about a city
 function cityPosts(req, res) {
   var cityId = req.params.cityId;
-  Post.find({_city: cityId}, function getPostsForOneCity(err, posts){
+  Post.find({_city: cityId}, function getPostsCityForOneCity(err, posts){
     if (err || !posts) {
       return res.status(404).send({message: 'Post not found.'})
     }
-
+    console.log('this is what is being returned: ',posts);
     res.json(posts);
   })
   .populate('_user')//this is the property of post model
@@ -31,11 +31,11 @@ function cityPosts(req, res) {
 function userPosts(req, res) {
   var userId = req.user_id;
   console.log('user ID is: ', userId);
-  Post.find({_user: userId}, function getPostsForOneCity(err, posts){
+  Post.find({_user: userId}, function getPostsUserForOneCity(err, posts){
     if (err || !posts) {
       return res.status(404).send({message: 'Post not found.'})
     }
-
+    console.log('this is being returned on user load: ', posts);
     res.json(posts);
   })
   .populate('_city')
