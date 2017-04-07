@@ -2,7 +2,7 @@
 <hr>
 
 
-<p ng-if="!postsIndexCtrl.posts.length">No posts yet.</p>
+<!-- <p ng-if="!postsIndexCtrl.posts.length">No posts yet.</p>
 
 <div ng-if="postsIndexCtrl.posts.length">
   <div ng-repeat="post in postsIndexCtrl.posts">
@@ -11,9 +11,11 @@
       <p>
         {{post}}
       </p>
-      <strong>Name: {{post.user.displayName}}</strong>
+      <strong>Name: {{post._user.displayName}}</strong>
     </p>
   </div>
+</div> -->
+<div ng-controller="CitiesIndexController as citiesIndexCtrl">
+  <p>{{citiesIndexCtrl.city}}</p>
+  <a class="btn btn-primary btn-block" ng-href="/cities/{{city._id}}/posts/new" ng-show="main.currentUser.isLoggedIn()">Add New Post</a>
 </div>
-
-<a class="btn btn-primary btn-block" href="/posts/new" ng-show="main.currentUser.isLoggedIn()">Add New Post</a>

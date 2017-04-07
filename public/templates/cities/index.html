@@ -5,9 +5,9 @@
 <p ng-if="!citiesIndexCtrl.cities.length">No cities yet.</p>
 
 <div ng-if="citiesIndexCtrl.cities.length">
-  <div ng-repeat="city in citiesIndexCtrl.cities | filter:citySearch">
+  <div ng-repeat="city in citiesIndexCtrl.cities">
     <p>
-      <strong><a ng-href="/cities/{{city._id}}">{{city.cityName}}</a></strong>
+      <strong><a ng-href="/cities/{{city._id}}/posts">{{city.cityName}}</a></strong>
     </p>
   </div>
 </div>

@@ -48,6 +48,15 @@ $routeProvider
     loginRequired: loginRequired
   }
 })
+.when('/cities/:cityId/posts', {
+  templateUrl: '/templates/posts/index.html',
+  controller: 'PostsIndexController',
+  controllerAs: 'postsIndexCtrl',
+  resolve: {
+    loginRequired: loginRequired
+  }
+})
+
 .when('./users/:userId/posts', {
   templateUrl: 'templates/posts/index.html',
   controller: 'PostsIndexController',
@@ -100,11 +109,6 @@ $routeProvider
   resolve: {
     loginRequired: loginRequired
   }
-})
-.when('/cities/:cityId', {
-  templateUrl: '/templates/cities/show.html',
-  controller: 'CitiesShowController',
-  controllerAs: 'citiesShowCtrl'
 })
 .when('/cities/:cityId/edit', {
   templateUrl: '/templates/cities/edit.html',
