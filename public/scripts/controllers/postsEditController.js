@@ -13,7 +13,7 @@ function PostsEditController ($location, $http, $routeParams) {
 
   function update() {
     $http
-      .put('/api/posts/' + id, vm.post)
+      .put('/api/cities/' + id + '/posts', vm.post)
       .then(onUpdateSuccess, onUpdateError);
 
     function onUpdateSuccess(response){

@@ -1,12 +1,8 @@
-<h2>Posts</h2>
+<div class="postStuff" ng-repeat="post in postsCityIndexCtrl.posts">
+<h2>Posts for {{post._city.cityName}}</h2>
 <hr>
 
-<div ng-repeat="post in postsCityIndexCtrl.posts">
-    <p>this is the content of the post: {{post.content}}</p>
-    <p>this is the city name: {{post._user.displayName}}</p>
+    <p>Content: <a ng-href="/posts/{{post._id}}">{{post.content}}</p></a>
+    <p><strong>By:</strong> {{post._user.displayName}}</p>
     <a class="btn btn-primary btn-block" ng-href="/cities/{{post._city}}/posts/new" ng-show="main.currentUser.isLoggedIn()">Add New Post</a>
 </div>
-<!-- <div ng-repeat="post in postsCityIndexCtrl.posts">
-    this is id of city outside of ng-repeat {{city}}
-    <a class="btn btn-primary btn-block" ng-href="/cities/{{city._id}}/posts/new" ng-show="main.currentUser.isLoggedIn()">Add New Post</a>
-</div> -->

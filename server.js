@@ -46,8 +46,8 @@ var postCtrl = controllers.posts;
 //city and post routes
 app.get('/api/cities/:cityId/posts', auth.ensureAuthenticated, postCtrl.cityPosts);
 app.post('/api/cities/:cityId/posts', auth.ensureAuthenticated, postCtrl.create);
-// app.delete('/api/cities/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.destroy);
-// app.put('/api/cities/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.update);
+app.delete('/api/cities/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.destroy);
+app.put('/api/cities/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.update);
 
 //user and post routes
 app.get('/api/users/:userId/posts', auth.ensureAuthenticated, postCtrl.userPosts);
