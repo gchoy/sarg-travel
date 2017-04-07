@@ -4,12 +4,14 @@ var mongoose = require('mongoose'),
     Post = require('./post');
 
 var UserSchema = new Schema({
+  //remove if not used: model properties\
+  //or now that you are using .populate, you can do stuff with this 
     created: { type: Date, default: Date.now },
     updated: { type: Date },
     email: { type: String, unique: true, lowercase: true },
     password: { type: String, select: false },
     displayName: String,
-    posts : [{type: Schema.Types.ObjectId, ref: 'Post'}] // one user has many posts 
+    posts : [{type: Schema.Types.ObjectId, ref: 'Post'}] // one user has many posts
 });
 
 // bump date updated

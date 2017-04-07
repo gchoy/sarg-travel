@@ -4,6 +4,7 @@ var mongoose = require('mongoose'),
     City = require('./city');
 
 var PostSchema = new Schema({
+  //great use of embedded reference
   _city:  {type: Schema.Types.ObjectId, ref: 'City'},
   content: String,
   _user: {type: Schema.Types.ObjectId, ref: 'User'}

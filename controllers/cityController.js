@@ -1,3 +1,4 @@
+//looks very good/clean
 var auth = require('../middleware/auth'),
     db = require('../models'),
     User = db.User,
