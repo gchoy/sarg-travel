@@ -2,7 +2,7 @@
   <h1 id="welcome">Sarg Travel</h1>
 
   <div id="search">Search City:
-    <input type="text" ng-model="citySearch" placeholder="city name">
+    <input id="cityName" type="text" ng-model="citySearch" placeholder="City Name">
   </div>
     <div ng-if="citySearch" id="searchedCities">
       <div ng-repeat="city in citiesIndexCtrl.cities | filter:citySearch">
@@ -16,7 +16,7 @@
 <div id="carousel" class="container">
 
  <br>
- <div id="myCarousel" class="carousel slide" data-ride="carousel">
+ <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
    <!-- Indicators -->
    <ol class="carousel-indicators">
      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -27,7 +27,7 @@
 
    <!-- Wrapper for slides -->
    <div class="carousel-inner" role="listbox">
-    
+
      <div class="item active">
        <img src="./images/FullSizeRender-1.jpg" alt="Place" width="460" height="345">
      </div>
