@@ -1,16 +1,27 @@
-<h2>Cities</h2>
-<hr>
+<div class="citiespic">
 
+
+<div class="citiesbackground">
+
+
+<h2 id="cities">Cities</h2>
 
 <p ng-if="!citiesIndexCtrl.cities.length">No cities yet.</p>
 
+<a id="newcitiesbutton" class="btn btn-primary btn-block" href="/cities/new" ng-show="main.currentUser.isLoggedIn()">Add New City</a>
+
 <div ng-if="citiesIndexCtrl.cities.length">
   <div ng-repeat="city in citiesIndexCtrl.cities | filter:citySearch">
+
+
     <p>
-      <strong><a ng-href="/cities/{{city._id}}">{{city.cityName}}</a></strong>
+      <strong><a class="citynames" ng-href="/cities/{{city._id}}">{{city.cityName}}</a></strong>
     </p>
   </div>
 </div>
 
 
-<a class="btn btn-primary btn-block" href="/cities/new" ng-show="main.currentUser.isLoggedIn()">Add New City</a>
+
+</div>
+
+</div>

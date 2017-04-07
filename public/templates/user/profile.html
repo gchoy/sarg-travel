@@ -6,7 +6,7 @@
   <div class="card" style="width: 20rem;">
 
     <div class="card-block">
-        <h3>{{main.currentUser.displayName}}</h3>
+        <h3 class="displayusername">{{main.currentUser.displayName}}</h3>
 
       <img class="blankprofile" src="/images/blankpic.png" alt="Card image cap">
 
@@ -42,7 +42,8 @@
 
 <div class="container" ng-controller="PostsIndexController as postsIndexCtrl">
   <div ng-repeat="post in postsIndexCtrl.posts">
-      <p>{{post.content}}</p>
       <p>{{post._city.cityName}}</p>
+      <p>{{post.content}}</p>
+
   </div>
 </div>

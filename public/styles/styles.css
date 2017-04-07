@@ -112,6 +112,12 @@
   margin-left: 20px;
 }
 
+.displayusername{
+font-size: 45px;
+}
+
+
+
 /*Sign-Up Page USER - REGISTRATION */
 
 .form-control {
@@ -121,12 +127,16 @@
 
 #userregistrationtitle {
   margin-left: 3%;
+  color: white;
+  font-family: 'Lobster', cursive;
+  font-size: 60px;
 }
 
 #formsubmitpage {
   margin-left: 3%;
   font-size: 20px;
   margin-top: 15px;
+  color: white;
 
 }
 
@@ -201,4 +211,76 @@
 
 #signuphere {
   color: white;
+}
+
+/*CITIES PAGE*/
+
+.citiespic {
+  background-image: url("../images/nightsky.jpg");
+  min-height: 800px;
+  background-size: cover;
+  background-position: center;
+  background-position: fixed;
+  margin-bottom: -30px;
+  margin-top: -20px;
+}
+
+#cities {
+  color: white;
+  font-size: 95px;
+  font-family: 'Lobster', cursive;
+}
+
+.citiesbackground {
+  padding-top: 3%;
+  text-align: center;
+
+}
+
+.citynames {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+#newcitiesbutton {
+  width: 10%;
+  display: inline-block;
+  margin-bottom: 20px;
+
+}
+
+.citydiv{
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 50px;
+}
+
+#addnewcitypostbutton {
+  width: 15%;
+  display: inline-block;
+
+}
+
+#citybuttons {
+margin-left: 42%;
+}
+
+#citybackground {
+  background-color: rgb(115, 196, 233);
+  min-height: 800px;
+  background-size: cover;
+  background-position: center;
+  background-position: fixed;
+  margin-bottom: -30px;
+  margin-top: -20px;
+  padding-top: 3%;
+}
+
+
+/*CREATE NEW POST PAGE*/
+
+#createnewpostbutton {
+  width: 15%;
+  display: inline-block;
 }
