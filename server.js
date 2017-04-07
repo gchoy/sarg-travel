@@ -37,11 +37,23 @@ app.put('/api/posts/:postId', auth.ensureAuthenticated, controllers.posts.update
 //city json endpoints
 app.get('/api/cities', controllers.city.index);
 app.get('/api/cities/:cityId', controllers.city.show);
-//app.post('/api/cities', auth.ensureAuthenticated, controllers.city.create);
+app.post('/api/cities', auth.ensureAuthenticated, controllers.city.create);
 app.delete('/api/cities/:cityId', auth.ensureAuthenticated, controllers.city.destroy);
-app.get('/api/cities/:cityId/posts', controllers.posts.cityPosts)
-app.post('/api/cities/:cityId/posts', auth.ensureAuthenticated, controllers.posts.create)
 app.put('/api/cities/:cityId', auth.ensureAuthenticated, controllers.city.update);
+
+
+var postCtrl = controllers.posts;
+//city and post routes
+app.get('/api/cities/:cityId/posts', postCtrl.cityPosts);
+app.post('/api/cities/:cityId/posts', auth.ensureAuthenticated, postCtrl.create);
+// app.delete('/api/cities/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.destroy);
+// app.put('/api/cities/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.update);
+
+//user and post routes
+app.get('/api/users/:userId/posts', auth.ensureAuthenticated, postCtrl.userPosts);
+app.post('/api/users/:userId/posts', auth.ensureAuthenticated, postCtrl.create);
+// app.delete('/api/users/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.destroy);
+// app.put('/api/users/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.update);
 
 app.get(['/', '/signup', '/login', '/logout', '/cities*', '/profile', '/posts*'], function (req, res) {
   res.sendFile(__dirname + '/views/index.html');

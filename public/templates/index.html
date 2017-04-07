@@ -4,7 +4,7 @@
   <div id="search">Search City:
     <input type="text" ng-model="citySearch" placeholder="city name">
   </div>
-    <div ng-if="citySearch" id="searchedCities">
+  <div ng-if="citySearch" id="searchedCities">
       <div ng-repeat="city in citiesIndexCtrl.cities | filter:citySearch">
           <p>
             <strong><a ng-href="/cities/{{city._id}}">{{city.cityName}}</a></strong>
@@ -27,7 +27,7 @@
 
    <!-- Wrapper for slides -->
    <div class="carousel-inner" role="listbox">
-    
+
      <div class="item active">
        <img src="./images/FullSizeRender-1.jpg" alt="Place" width="460" height="345">
      </div>
