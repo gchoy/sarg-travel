@@ -215,7 +215,7 @@ font-size: 45px;
 
 /*CITIES PAGE*/
 
-.citiespic {
+.citybackground {
   background-image: url("../images/nightsky.jpg");
   min-height: 800px;
   background-size: cover;
@@ -223,37 +223,22 @@ font-size: 45px;
   background-position: fixed;
   margin-bottom: -30px;
   margin-top: -20px;
+  padding: 3%;
 }
 
 #cities {
   color: white;
   font-size: 95px;
   font-family: 'Lobster', cursive;
+  text-align: center;
 }
 
 .citiesbackground {
   padding-top: 3%;
   text-align: center;
+  font-size: 18px;
 
-}
 
-.citynames {
-  text-align: center;
-  color: white;
-  font-size: 20px;
-}
-
-#newcitiesbutton {
-  width: 10%;
-  display: inline-block;
-  margin-bottom: 20px;
-
-}
-
-.citydiv{
-  text-align: center;
-  font-family: 'Lobster', cursive;
-  font-size: 50px;
 }
 
 #addnewcitypostbutton {
@@ -262,20 +247,6 @@ font-size: 45px;
 
 }
 
-#citybuttons {
-margin-left: 42%;
-}
-
-#citybackground {
-  background-color: rgb(115, 196, 233);
-  min-height: 800px;
-  background-size: cover;
-  background-position: center;
-  background-position: fixed;
-  margin-bottom: -30px;
-  margin-top: -20px;
-  padding-top: 3%;
-}
 
 
 /*CREATE NEW POST PAGE*/
@@ -283,4 +254,15 @@ margin-left: 42%;
 #createnewpostbutton {
   width: 15%;
   display: inline-block;
+}
+
+.postStuff {
+  background-image: url("../images/postpic.jpg");
+  min-height: 800px;
+  background-size: cover;
+  background-position: center;
+  background-position: fixed;
+  margin-bottom: -30px;
+  margin-top: -20px;
+  padding: 3%;
 }

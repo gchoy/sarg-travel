@@ -1,20 +1,25 @@
-<div class="citiespic">
+<div class="citybackground">
+
+
+<h2 id="cities">Cities</h2>
 
 
 <div class="citiesbackground">
 
 
-<h2 id="cities">Cities</h2>
-
 <p ng-if="!citiesIndexCtrl.cities.length">No cities yet.</p>
 
-<a id="newcitiesbutton" class="btn btn-primary btn-block" href="/cities/new" ng-show="main.currentUser.isLoggedIn()">Add New City</a>
-
 <div ng-if="citiesIndexCtrl.cities.length">
-    
+  <div ng-repeat="city in citiesIndexCtrl.cities">
+    <p>
+      <strong></strong><a ng-href="/cities/{{city._id}}/posts">{{city.cityName}}</a></strong>
+    </p>
   </div>
 </div>
 
 
+<a id="addnewcitypostbutton" class="btn btn-primary btn-block" href="/cities/new" ng-show="main.currentUser.isLoggedIn()">Add New City</a>
 
+</div>
 
+</div>
