@@ -24,6 +24,10 @@
   font-size: 18px;
 }
 
+#cityName {
+  text-align: center;
+}
+
 .background {
  background-image: url("../images/background.jpg");
  min-height: 700px;
@@ -38,28 +42,23 @@
     width: 40%;
     margin-top: 45px;
     box-shadow: 10px 10px 5px;
+    margin: auto;
+
 }
+
+.carousel {
+  margin: auto;
+}
+
+
 
 .footer {
  font-family: 'Lobster', cursive;
-
  font-size: 20px;
  text-align: center;
  padding: 5px;
  margin-top: 30px;
 }
-
-/*NAV BAR*/
-/*.navbar {
- position: fixed;
-}*/
-
-/*.card-block {
- background-color: rgb(250, 110, 56);
- margin: 10%;
- margin-left: auto;
- font-size: 20px;
-}*/
 
 /*PROFILE PAGE*/
 
@@ -113,29 +112,93 @@
   margin-left: 20px;
 }
 
-/*USER REGISTRATION PAGE*/
+/*Sign-Up Page USER - REGISTRATION */
 
 .form-control {
   width: 40%;
+  padding: 1%;
 }
 
 #userregistrationtitle {
   margin-left: 3%;
 }
+
 #formsubmitpage {
   margin-left: 3%;
+  font-size: 20px;
+  margin-top: 15px;
 
 }
 
-#userregistrationpic {
-
+.userregistrationpic {
+  background-image: url("../images/icepic.jpg");
+  min-height: 800px;
+  background-size: cover;
+  background-position: center;
+  background-position: fixed;
+  margin-bottom: -30px;
+  margin-top: -50px;
 }
+
+#userregistrationdiv {
+  padding-top: 5%;
+}
+
+
 
 /*LOGIN PAGE*/
+.logindiv {
+  padding-top: 5%;
+}
+
 .text-muted {
   text-align: center;
+  color: white;
+}
+
+#loginbutton {
+  width: 10%;
+  display: inline-block;
+
 }
 
 .loginuser {
   text-align: center;
+  margin: 1%;
+}
+
+#loginemail {
+  width: 400px;
+  text-align: center;
+  margin: auto;
+  padding: .5%;
+}
+
+#loginpassword {
+  width: 400px;
+  text-align: center;
+  margin: auto;
+  padding: .5%;
+}
+
+.loginpic{
+  background-image: url("../images/womanwater.jpg");
+  min-height: 800px;
+  background-size: cover;
+  background-position: center;
+  background-position: fixed;
+  margin-bottom: -30px;
+  margin-top: -50px;
+}
+
+#loginwelcome {
+  color: white;
+  font-size: 60px;
+  font-family: 'Lobster', cursive;
+  margin-bottom: 30px;
+
+}
+
+#signuphere {
+  color: white;
 }
