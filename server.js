@@ -18,6 +18,7 @@ app.use(express.static(__dirname + '/public'));
 // log api requests
 app.use(logger('dev'));
 
+//redo with router?
 app.get(['/', '/signup', '/login', '/logout', '/cities*', '/profile', '/posts*'], function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
