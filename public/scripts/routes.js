@@ -48,6 +48,14 @@ $routeProvider
     loginRequired: loginRequired
   }
 })
+.when('./users/:userId/posts', {
+  templateUrl: 'templates/posts/index.html',
+  controller: 'PostsIndexController',
+  controllerAs: 'postsIndexCtrl',
+  resolve: {
+    loginRequired: loginRequired
+  }
+})
 
 
 

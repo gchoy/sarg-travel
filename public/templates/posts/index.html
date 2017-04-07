@@ -7,9 +7,8 @@
 <div ng-if="postsIndexCtrl.posts.length">
   <div ng-repeat="post in postsIndexCtrl.posts">
     <p>
-      <strong><a ng-href="/posts/{{post._id}}">{{post.title}}</a></strong>
+      <strong><a ng-href="/posts/{{post._id}}">{{post.content}}</a></strong>
       <p>
-        {{post.post}}
         {{post}}
       </p>
       <strong>Name: {{post.user.displayName}}</strong>
