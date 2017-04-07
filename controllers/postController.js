@@ -18,6 +18,7 @@ function index(req, res) {
 //TODO: Get all posts that are about a city
 function cityPosts(req, res) {
   var cityId = req.params.cityId;
+
   Post.find({_city: cityId}, function getPostsCityForOneCity(err, posts){
     if (err || !posts) {
       return res.status(404).send({message: 'Post not found.'})
@@ -25,7 +26,7 @@ function cityPosts(req, res) {
     console.log('this is what is being returned: ',posts);
     res.json(posts);
   })
-  .populate('_user')//this is the property of post model
+  .populate(['_user','_city'])//this is the property of post model
 }
 //get all user posts
 function userPosts(req, res) {

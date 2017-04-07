@@ -12,6 +12,7 @@ function CitiesNewController ($location, $http) {
       .then(onCreateSuccess, onCreateError);
 
     function onCreateSuccess(response){
+      console.log('this is where its going: ', response.data._id);
       $location.path('/cities/' + response.data._id)
     }
 
