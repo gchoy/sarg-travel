@@ -1,17 +1,11 @@
-<div id="citybackground">
-
-
-
-<h2 class="citydiv">City Name: {{citiesShowCtrl.city.cityName}}</h2>
-<h4 class="citydiv">Country: {{citiesShowCtrl.city.country}}</h4>
-
-<div id="citybuttons">
-
-
-<a class="btn btn-primary" ng-href="/cities/{{citiesShowCtrl.city._id}}/edit">Edit City</a>
-
-<a id="addnewcitypostbutton" class="btn btn-primary btn-block" href="/cities/{{citiesShowCtrl.city._id}}/posts/new" ng-show="main.currentUser.isLoggedIn()">Add New Post</a>
-
+<h2>City name: {{citiesShowCtrl.city.cityName}}</h2>
+<h4>Country: {{citiesShowCtrl.city.country}}</h4>
+<a class="btn btn-primary"
+    ng-href="/cities/{{citiesShowCtrl.city._id}}/edit">Edit City</a>
+<a class="btn btn-primary btn-block" href="/cities/{{citiesShowCtrl.city._id}}/posts/new" ng-show="main.currentUser.isLoggedIn()">Add New Post</a>
+<div class="container" ng-controller="PostsIndexController as postsIndexCtrl">
+    <div ng-repeat="post in postsIndexCtrl">
+      <p>Content: {{post}}</p>
+   </div>
 </div>
 
-</div>

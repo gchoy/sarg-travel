@@ -11,17 +11,10 @@
 <a id="newcitiesbutton" class="btn btn-primary btn-block" href="/cities/new" ng-show="main.currentUser.isLoggedIn()">Add New City</a>
 
 <div ng-if="citiesIndexCtrl.cities.length">
-  <div ng-repeat="city in citiesIndexCtrl.cities | filter:citySearch">
-
-
-    <p>
-      <strong><a class="citynames" ng-href="/cities/{{city._id}}">{{city.cityName}}</a></strong>
-    </p>
+    
   </div>
 </div>
 
 
 
-</div>
 
-</div>
