@@ -26,7 +26,7 @@ function cityPosts(req, res) {
     console.log('this is what is being returned: ',posts);
     res.json(posts);
   })
-  .populate(['_user','_city'])//this is the property of post model
+  .populate('_user')//this is the property of post model
 }
 //get all user posts
 function userPosts(req, res) {
