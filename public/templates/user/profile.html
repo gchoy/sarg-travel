@@ -40,10 +40,10 @@
 </div>
 
 
+<h1>Your Posts</h1>
 <div class="container" ng-controller="PostsIndexController as postsIndexCtrl">
   <div ng-repeat="post in postsIndexCtrl.posts">
-      <p>{{post._city.cityName}}</p>
-      <p>{{post.content}}</p>
-
+  <p><strong>Post: </strong><span> {{post.content}} </span></p>
+  <p><strong>City: </strong><span> {{post._city.cityName}} </span></p>
   </div>
 </div>

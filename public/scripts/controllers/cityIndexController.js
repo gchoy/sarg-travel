@@ -3,11 +3,9 @@ function CitiesIndexController ($http) {
   var vm = this;
   vm.cities = [];
 
-  query(); // fetch all the cities (index)
+  allCities();
 
-  ////
-
-  function query() {
+  function allCities() {
     $http
       .get('/api/cities')
       .then(function onSuccess(response) {
