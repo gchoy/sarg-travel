@@ -15,9 +15,8 @@ angular
   .controller('LogoutController', LogoutController)
   .controller('ProfileController', ProfileController)
   .controller('CitiesIndexController', CitiesIndexController)
-  .controller('CitiesShowController',CitiesShowController)
-  .controller('CitiesEditController',CitiesEditController)
+  .controller('CitiesShowController', CitiesShowController)
+  .controller('CitiesEditController', CitiesEditController)
   .controller('CitiesNewController', CitiesNewController)
   .service('UserService', UserService)
-  .config(configRoutes)
-  ;
+  .config(configRoutes);

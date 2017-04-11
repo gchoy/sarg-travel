@@ -1,15 +1,19 @@
 var auth = require('../middleware/auth');
 var db = require('../models'),
-    User = db.User,
-    Post = db.Post;
+  User = db.User,
+  Post = db.Post;
 
+//make consistent style/syntax
 function index(req, res) {
   Post
     .find({})
     .populate('user')
-    .exec(function(err, posts){
+    .exec(function (err, posts) {
       if (err || !posts || !posts.length) {
-        return res.status(404).send({message: 'Posts not found.'})
+        //great use of status
+        return res.status(404).send({
+          message: 'Posts not found.'
+        })
       }
       res.send(posts);
     })
@@ -19,54 +23,64 @@ function index(req, res) {
 function cityPosts(req, res) {
   var cityId = req.params.cityId;
 
-  Post.find({_city: cityId}, function getPostsCityForOneCity(err, posts){
-    if (err || !posts) {
-      return res.status(404).send({message: 'Post not found.'})
-    }
-    console.log('this is what is being returned: ',posts);
-    res.json(posts);
-  })
-  .populate(['_user','_city'])//this is the property of post model
+  Post.find({
+      _city: cityId
+    }, function getPostsCityForOneCity(err, posts) {
+      if (err || !posts) {
+        return res.status(404).send({
+          message: 'Post not found.'
+        })
+      }
+      console.log('this is what is being returned: ', posts);
+      res.json(posts);
+    })
+    .populate(['_user', '_city']) //this is the property of post model
 }
 //get all user posts
 function userPosts(req, res) {
   var userId = req.user_id;
   console.log('user ID is: ', userId);
-  Post.find({_user: userId}, function getPostsUserForOneCity(err, posts){
-    if (err || !posts) {
-      return res.status(404).send({message: 'Post not found.'})
-    }
-    console.log('this is being returned on user load: ', posts);
-    res.json(posts);
-  })
-  .populate('_city')
+  Post.find({
+      _user: userId
+    }, function getPostsUserForOneCity(err, posts) {
+      if (err || !posts) {
+        return res.status(404).send({
+          message: 'Post not found.'
+        })
+      }
+      console.log('this is being returned on user load: ', posts);
+      res.json(posts);
+    })
+    .populate('_city')
 }
 
-function create(req, res){
+function create(req, res) {
   var new_post = new Post(req.body);
-  new_post._user = req.user_id;//this is getting the user_id from authentication. need the auth middleware in routes in server.js
+  new_post._user = req.user_id; //this is getting the user_id from authentication. need the auth middleware in routes in server.js
   //var cityId = req.params.cityId;
-  new_post._city = req.params.cityId;//get the city id and put it here.
+  new_post._city = req.params.cityId; //get the city id and put it here.
   console.log('this is the city id:', new_post._city);
-  new_post.save(function(err, new_post){
+  new_post.save(function (err, new_post) {
     res.send(new_post);
   })
 }
 
-function show(req, res){
+function show(req, res) {
   Post
     .findById(req.params.postId)
     .populate('user')
-    .exec(function(err, found_post){
+    .exec(function (err, found_post) {
       if (err || !found_post) {
-        return res.status(404).send({message: 'Post not found.'})
+        return res.status(404).send({
+          message: 'Post not found.'
+        })
       }
 
       res.send(found_post);
     })
 }
 
-function update(req, res){
+function update(req, res) {
   var query = {
     _id: req.params.postId
   };
@@ -77,16 +91,18 @@ function update(req, res){
 
   Post
     .findOneAndUpdate(query, req.body)
-    .exec(function(err, post){
+    .exec(function (err, post) {
       if (err || !post) {
         console.log(post)
-        return res.status(404).send({messsage: 'Failed to update post.'})
+        return res.status(404).send({
+          messsage: 'Failed to update post.'
+        })
       }
       res.status(204).send();
     })
 }
 
-function destroy(req, res){
+function destroy(req, res) {
   var query = {
     _id: req.params.postId
   };
@@ -97,20 +113,21 @@ function destroy(req, res){
 
   Post
     .findOneAndRemove(query)
-    .exec(function(err, post){
+    .exec(function (err, post) {
       if (err || !post) {
-        return res.status(404).send({messsage: 'Failed to delete post.'})
+        return res.status(404).send({
+          messsage: 'Failed to delete post.'
+        })
       }
       res.status(204).send();
     })
 }
 
-
 module.exports = {
-  index:index,
-  cityPosts:cityPosts,
-  show:show,
-  create:create,
+  index: index,
+  cityPosts: cityPosts,
+  show: show,
+  create: create,
   destroy: destroy,
   update: update,
   userPosts: userPosts

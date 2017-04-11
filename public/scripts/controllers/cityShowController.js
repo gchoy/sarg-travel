@@ -5,6 +5,7 @@ function CitiesShowController ($location, $http, $routeParams) {
   vm.city = {};
 
   var id = $routeParams.cityId;
+  //same comment as with Edit
   get(); // fetch one city (show)
 
   function get() {
