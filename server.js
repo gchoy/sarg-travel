@@ -18,6 +18,11 @@ app.use(express.static(__dirname + '/public'));
 // log api requests
 app.use(logger('dev'));
 
+//redo with router?
+app.get(['/', '/signup', '/login', '/logout', '/cities*', '/profile', '/posts*'], function (req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
+
 var usersCtrl = controllers.users;
 app.post('/auth/signup', usersCtrl.signup);
 app.post('/auth/login', usersCtrl.login);
@@ -52,13 +57,9 @@ app.put('/api/cities/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.
 //user and post routes
 app.get('/api/users/:userId/posts', auth.ensureAuthenticated, postCtrl.userPosts);
 app.post('/api/users/:userId/posts', auth.ensureAuthenticated, postCtrl.create);
+//TODO for later :)
 // app.delete('/api/users/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.destroy);
 // app.put('/api/users/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.update);
-
-app.get(['/', '/signup', '/login', '/logout', '/cities*', '/profile', '/posts*'], function (req, res) {
-  res.sendFile(__dirname + '/views/index.html');
-});
-
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('sarge is on 3000 ...');

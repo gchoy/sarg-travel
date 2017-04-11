@@ -2,7 +2,6 @@
 <div  ng-repeat="post in postsCityIndexCtrl.posts">
 <h2>Posts for {{post._city.cityName}}</h2>
 <hr>
-
     <p>Content: <a ng-href="/posts/{{post._id}}">{{post.content}}</p></a>
     <p><strong>By:</strong> {{post._user.displayName}}</p>
     <a class="btn btn-primary btn-block" ng-href="/cities/{{post._city}}/posts/new" ng-show="main.currentUser.isLoggedIn()">Add New Post</a>
