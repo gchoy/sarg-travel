@@ -48,6 +48,14 @@ function configRoutes($routeProvider, $locationProvider) {
         loginRequired: loginRequired
       }
     })
+    .when('/cities/:cityId/posts/:postId/edit', {
+      templateUrl: '/templates/posts/new.html',
+      controller: 'PostsEditController',
+      controllerAs: 'postsEditCtrl',
+      resolve: {
+        loginRequired: loginRequired
+      }
+    })
     .when('/cities/:cityId/posts', {
       templateUrl: '/templates/posts/index.html',
       controller: 'PostsCityIndexController',

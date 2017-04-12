@@ -1,8 +1,8 @@
 //looks very good/clean
 var auth = require('../middleware/auth'),
-    db = require('../models'),
-    User = db.User,
-    City = db.City;
+  db = require('../models'),
+  User = db.User,
+  City = db.City;
 
 //GET /api/city
 function index(req, res) {

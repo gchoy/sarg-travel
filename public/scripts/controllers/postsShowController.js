@@ -10,7 +10,7 @@ function PostsShowController ($location, $http, $routeParams) {
 
   function get() {
     $http
-      .get('/api/posts/' + id)
+      .get('/api/cities/' + id)
       .then(onGetSuccess, onGetError);
 
     function onGetSuccess(response){

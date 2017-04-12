@@ -58,8 +58,8 @@ app.put('/api/cities/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.
 app.get('/api/users/:userId/posts', auth.ensureAuthenticated, postCtrl.userPosts);
 app.post('/api/users/:userId/posts', auth.ensureAuthenticated, postCtrl.create);
 //TODO for later :)
-// app.delete('/api/users/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.destroy);
-// app.put('/api/users/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.update);
+app.delete('/api/users/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.destroy);
+app.put('/api/users/:cityId/posts/:postId', auth.ensureAuthenticated, postCtrl.update);
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('sarge is on 3000 ...');
