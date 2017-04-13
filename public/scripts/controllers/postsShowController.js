@@ -5,12 +5,13 @@ function PostsShowController ($location, $http, $routeParams) {
   vm.post = {};
 
   var id = $routeParams.postId;
+
   //rename get function to be getPosts
   get(); // fetch one post (show)
 
   function get() {
     $http
-      .get('/api/cities/' + id)
+      .get('/api/posts/' + id)
       .then(onGetSuccess, onGetError);
 
     function onGetSuccess(response){

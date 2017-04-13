@@ -10,12 +10,13 @@
     <h1>Posts for  {{cityShowCtrl.city.cityName}}</h1>
 </div>
 
-<div class="postStuff" ng-controller="PostsCityIndexController as postsCityIndexCtrl">
+<div class="" ng-controller="PostsCityIndexController as postsCityIndexCtrl">
 
 <div  ng-repeat="post in postsCityIndexCtrl.posts">
   <ng-if="post._city.cityName">
 <hr>
-    <p>Content: <a ng-href="/cities/{{postsShowCtrl.post._city}}/posts/{{postsShowCtrl.post._id}}/">{{post.content}}</p></a>
+{{post}}
+    <p>Content: <a ng-href="/cities/{{post._city._id}}/posts/{{post._id}}/">{{post.content}}</p></a>
     <p><strong>By:</strong> {{post._user.displayName}}</p>
 </div>
 

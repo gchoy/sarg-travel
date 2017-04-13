@@ -48,6 +48,14 @@ function configRoutes($routeProvider, $locationProvider) {
         loginRequired: loginRequired
       }
     })
+    .when('/cities/:cityId/posts/:postId', {
+      templateUrl: '/templates/posts/show.html',
+      controller: 'PostsShowController',
+      controllerAs: 'postsShowCtrl',
+      resolve: {
+        loginRequired: loginRequired
+      }
+    })
     .when('/cities/:cityId/posts/:postId/edit', {
       templateUrl: '/templates/posts/new.html',
       controller: 'PostsEditController',
@@ -56,6 +64,7 @@ function configRoutes($routeProvider, $locationProvider) {
         loginRequired: loginRequired
       }
     })
+    //this shows all the posts for that city
     .when('/cities/:cityId/posts', {
       templateUrl: '/templates/posts/index.html',
       controller: 'PostsCityIndexController',
