@@ -5,19 +5,22 @@ function PostsEditController ($location, $http, $routeParams) {
   vm.destroy = destroy;
   vm.post = {}; // form data
 
-  var id = $routeParams.postId;
-  console.log('this isthe id :', id);
+console.log('this is the params : ', $routeParams );
+  var cityId = $routeParams.cityId;
+  console.log('this is the city id :', cityId);
+  var postId = $routeParams.postId;
+  console.log('this is post id  :', postId);
   get(); // fetch one post (show)
 
   ////
 
   function update() {
     $http
-      .put('/api/cities/' + id + '/posts', vm.post)
+      .put('/api/cities/' + cityId + '/posts/' + postId, vm.post)
       .then(onUpdateSuccess, onUpdateError);
 
     function onUpdateSuccess(response){
-      $location.path("/posts/" + id);
+      $location.path('/api/cities/' + cityId + '/posts/');
     }
 
     function onUpdateError(response){
@@ -27,7 +30,7 @@ function PostsEditController ($location, $http, $routeParams) {
 
   function destroy() {
     $http
-      .delete('/api/posts/' + id)
+      .delete('/api/posts/' + postId)
       .then(onDeleteSuccess, onDeleteError);
 
     function onDeleteSuccess(response){
@@ -41,7 +44,7 @@ function PostsEditController ($location, $http, $routeParams) {
 
   function get() {
     $http
-      .get('/api/posts/' + id)
+      .get('/api/posts/' + postId)
       .then(onGetSuccess, onGetError);
 
     function onGetSuccess(response){

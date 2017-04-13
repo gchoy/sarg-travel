@@ -31,15 +31,23 @@ function cityPosts(req, res) {
           message: 'Post not found.'
         })
       }
-      console.log('this is what is being returned: ', posts);
-      res.json(posts);
+      if(posts.length === 0){
+        // console.log("THERE ARE NO POSTS FOR THIS CITY, SENDING CITY: ", posts._city);
+        res.json({city: cityId})
+      } else {
+        // console.log('this is what is being returned: ', posts);
+        res.json(posts);
+      }
     })
     .populate(['_user', '_city']) //this is the property of post model
 }
+
+
+
 //get all user posts
 function userPosts(req, res) {
   var userId = req.user_id;
-  console.log('user ID is: ', userId);
+  // console.log('user ID is: ', userId);
   Post.find({
       _user: userId
     }, function getPostsUserForOneCity(err, posts) {
@@ -48,7 +56,7 @@ function userPosts(req, res) {
           message: 'Post not found.'
         })
       }
-      console.log('this is being returned on user load: ', posts);
+      // console.log('this is being returned on user load: ', posts);
       res.json(posts);
     })
     .populate('_city')
@@ -59,7 +67,7 @@ function create(req, res) {
   new_post._user = req.user_id; //this is getting the user_id from authentication. need the auth middleware in routes in server.js
   //var cityId = req.params.cityId;
   new_post._city = req.params.cityId; //get the city id and put it here.
-  console.log('this is the city id:', new_post._city);
+  // console.log('this is the city id:', new_post._city);
   new_post.save(function (err, new_post) {
     res.send(new_post);
   })
@@ -81,8 +89,10 @@ function show(req, res) {
 }
 
 function update(req, res) {
+  console.log('this is the req.params on update function, search this for cityId: ', req.params);
   var query = {
-    _id: req.params.postId
+    _id: req.params.postId,
+    cityId : req.params.cityId
   };
 
   if (req.user_id) {
