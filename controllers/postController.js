@@ -74,16 +74,16 @@ function create(req, res) {
 }
 
 function show(req, res) {
+  console.log('this is the req.params of the show function: ', req.params);
   Post
     .findById(req.params.postId)
-    .populate('user')
+    .populate(['_user', '_city'])
     .exec(function (err, found_post) {
       if (err || !found_post) {
         return res.status(404).send({
           message: 'Post not found.'
         })
       }
-
       res.send(found_post);
     })
 }

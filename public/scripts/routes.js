@@ -57,7 +57,7 @@ function configRoutes($routeProvider, $locationProvider) {
       }
     })
     .when('/cities/:cityId/posts/:postId/edit', {
-      templateUrl: '/templates/posts/new.html',
+      templateUrl: '/templates/posts/edit.html',
       controller: 'PostsEditController',
       controllerAs: 'postsEditCtrl',
       resolve: {

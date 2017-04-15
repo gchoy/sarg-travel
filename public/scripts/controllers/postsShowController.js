@@ -4,14 +4,18 @@ function PostsShowController ($location, $http, $routeParams) {
   var vm = this;
   vm.post = {};
 
-  var id = $routeParams.postId;
+  var postId = $routeParams.postId;
+  var cityId = $routeParams.cityId;
+  console.log('this is postId: ', postId);
+  console.log('this is the cityId: ', cityId);
+  console.log('this is the $routeParams : ', $routeParams);
 
-  //rename get function to be getPosts
-  get(); // fetch one post (show)
+  //rename get function to be getPost
+  getPost(); // fetch one post (show)
 
-  function get() {
+  function getPost() {
     $http
-      .get('/api/posts/' + id)
+      .get('/api/cities/' + cityId + '/posts/' + postId)
       .then(onGetSuccess, onGetError);
 
     function onGetSuccess(response){
@@ -19,8 +23,8 @@ function PostsShowController ($location, $http, $routeParams) {
     }
 
     function onGetError(response){
-      console.error("Failed to get post", response);
-      $location.path("/");
+      console.error("Failed to get tacos", response);
+      $location.path("/api/cities/" + cityId);
     }
   };
 }
